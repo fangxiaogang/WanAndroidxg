@@ -6,4 +6,6 @@ package com.xiaogang.com.wanandroid_xg.utils;
  */
 
 public class Constant {
+
+
 }

@@ -8,6 +8,4 @@ package com.xiaogang.com.wanandroid_xg.net;
 public interface ApiServer {
 
 
-
-
 }
