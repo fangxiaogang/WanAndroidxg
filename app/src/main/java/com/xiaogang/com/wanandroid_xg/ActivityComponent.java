@@ -3,6 +3,11 @@ package com.xiaogang.com.wanandroid_xg;
 import android.app.Activity;
 import android.content.Context;
 
+import com.xiaogang.com.wanandroid_xg.di.component.ApplicationComponent;
+import com.xiaogang.com.wanandroid_xg.di.moudule.ActivityModule;
+import com.xiaogang.com.wanandroid_xg.di.scope.ContextLife;
+import com.xiaogang.com.wanandroid_xg.di.scope.PerActivity;
+
 import dagger.Component;
 
 /**

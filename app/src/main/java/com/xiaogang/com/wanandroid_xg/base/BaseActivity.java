@@ -6,7 +6,10 @@ import android.support.annotation.Nullable;
 import android.view.MotionEvent;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.xiaogang.com.wanandroid_xg.ActivityComponent;
+import com.xiaogang.com.wanandroid_xg.DaggerActivityComponent;
 import com.xiaogang.com.wanandroid_xg.MyApplication;
+import com.xiaogang.com.wanandroid_xg.di.moudule.ActivityModule;
 
 import javax.inject.Inject;
 
@@ -24,7 +27,7 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  * date: 2018/9/1
  */
 
-public abstract class BaseActivity <V extends BaseContract.Basepresenter> extends RxAppCompatActivity implements BaseContract.Baseview,ISupportActivity{
+public abstract class BaseActivity <T extends BaseContract.Basepresenter> extends RxAppCompatActivity implements BaseContract.Baseview,ISupportActivity{
 
     private Unbinder unbinder;
 
@@ -34,13 +37,16 @@ public abstract class BaseActivity <V extends BaseContract.Basepresenter> extend
 
     @Nullable
     @Inject
-    protected V mPresenter;
+    protected T mPresenter;
 
     protected ActivityComponent mActivityComponent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        attachView();
+
     }
 
 
@@ -68,9 +74,7 @@ public abstract class BaseActivity <V extends BaseContract.Basepresenter> extend
      * 贴上view
      */
     private void attachView() {
-        if (mPresenter != null) {
-            mPresenter.attachView(this);
-        }
+        if (mPresenter != null) mPresenter.attachview(this);
     }
 
     /**
@@ -78,7 +82,7 @@ public abstract class BaseActivity <V extends BaseContract.Basepresenter> extend
      */
     private void destroyView() {
         if (mPresenter != null) {
-            mPresenter.detachView();
+            mPresenter.destroyview();
         }
     }
 

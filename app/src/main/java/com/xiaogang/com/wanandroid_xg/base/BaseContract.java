@@ -9,11 +9,13 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 
 public interface BaseContract {
 
-    interface Basepresenter <V extends BaseContract.Baseview>{
+    interface Basepresenter <T extends BaseContract.Baseview>{
 
-        void attachview (V view);
+        void attachview (T view);
 
         void destroyview ();
+
+
     }
 
     interface Baseview {
