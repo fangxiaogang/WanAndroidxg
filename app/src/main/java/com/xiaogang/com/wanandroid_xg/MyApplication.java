@@ -43,5 +43,5 @@ public class MyApplication extends Application {
     public ApplicationComponent getApplicationComponent() {
         return mApplicationComponent;
     }
-    //test  test
+
 }
