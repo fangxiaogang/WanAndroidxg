@@ -7,5 +7,6 @@ package com.xiaogang.com.wanandroid_xg.utils;
 
 public class Constant {
 
+    public static final String REQUEST_BASE_URL = "http://wanandroid.com/";
 
 }
