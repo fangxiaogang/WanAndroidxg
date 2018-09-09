@@ -31,9 +31,12 @@ public abstract class BaseActivity <T extends BaseContract.Basepresenter> extend
 
     private Unbinder unbinder;
 
-    protected abstract int getLayoutid();
+    protected abstract int getLayoutId();
 
     protected abstract void initView();
+
+
+    protected abstract void initInjector();
 
     @Nullable
     @Inject
@@ -45,8 +48,11 @@ public abstract class BaseActivity <T extends BaseContract.Basepresenter> extend
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        attachView();
 
+        int layoutId = getLayoutId();
+        setContentView(layoutId);
+        attachView();
+        initInjector();
     }
 
 
