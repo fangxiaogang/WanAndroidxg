@@ -53,8 +53,8 @@ public abstract class BaseActivity <T extends BaseContract.Basepresenter> extend
         initActivityComponent();
         int layoutId = getLayoutId();
         setContentView(layoutId);
-        attachView();
         initInjector();
+        attachView();
         unbinder = ButterKnife.bind(this);
         initView();
     }
@@ -84,7 +84,9 @@ public abstract class BaseActivity <T extends BaseContract.Basepresenter> extend
      * 贴上view
      */
     private void attachView() {
-        if (mPresenter != null) mPresenter.attachview(this);
+        if (mPresenter != null) {
+            mPresenter.attachview(this);
+        }
     }
 
     /**

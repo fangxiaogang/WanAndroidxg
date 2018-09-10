@@ -3,6 +3,7 @@ package com.xiaogang.com.wanandroid_xg;
 import android.app.Application;
 import android.content.Context;
 
+import com.blankj.utilcode.util.Utils;
 import com.xiaogang.com.wanandroid_xg.di.component.ApplicationComponent;
 import com.xiaogang.com.wanandroid_xg.di.component.DaggerApplicationComponent;
 import com.xiaogang.com.wanandroid_xg.di.moudule.ApplicationModule;
@@ -23,6 +24,7 @@ public class MyApplication extends Application {
         super.onCreate();
         myApplication = this;
         initApplicationComponent();
+        Utils.init(this);
     }
 
 

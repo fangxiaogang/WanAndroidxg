@@ -5,12 +5,12 @@ package com.xiaogang.com.wanandroid_xg.base;
  * date: 2018/9/1
  */
 
-public class BasePresenter <V extends BaseContract.Baseview> implements BaseContract.Basepresenter<V> {
+public class BasePresenter <T extends BaseContract.Baseview> implements BaseContract.Basepresenter<T> {
 
-    protected V mView;
+    protected T mView;
 
     @Override
-    public void attachview(V view) {
+    public void attachview(T view) {
         this.mView = view;
     }
 
