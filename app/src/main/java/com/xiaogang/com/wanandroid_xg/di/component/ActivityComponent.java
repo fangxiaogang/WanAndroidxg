@@ -8,6 +8,7 @@ import com.xiaogang.com.wanandroid_xg.di.moudule.ActivityModule;
 import com.xiaogang.com.wanandroid_xg.di.scope.ContextLife;
 import com.xiaogang.com.wanandroid_xg.di.scope.PerActivity;
 import com.xiaogang.com.wanandroid_xg.ui.login.LoginActivity;
+import com.xiaogang.com.wanandroid_xg.ui.mycollect.MyCollectActivity;
 
 import dagger.Component;
 
@@ -34,7 +35,7 @@ public interface ActivityComponent {
 //
 //    void inject(ArticleContentActivity activity);
 //
-//    void inject(MyCollectionActivity activity);
+    void inject(MyCollectActivity activity);
 //
 //    void inject(MyBookmarkActivity activity);
 }
