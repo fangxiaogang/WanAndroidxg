@@ -48,11 +48,12 @@ public abstract class BaseActivity <T extends BaseContract.Basepresenter> extend
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        initActivityComponent();
         int layoutId = getLayoutId();
         setContentView(layoutId);
         attachView();
         initInjector();
+        initView();
     }
 
 
