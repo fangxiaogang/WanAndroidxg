@@ -27,20 +27,15 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
         RetrofitManager.create(ApiServer.class)
                 .login(username, password)
                 .compose(RxSchedulers.<DataResponse<User>>applySchedulers())
-                .compose(mView.<DataResponse<User>>bindToLife())
+                //.compose(mView.<DataResponse<User>>bindToLife())
                 .subscribe(new Consumer<DataResponse<User>>() {
                     @Override
                     public void accept(DataResponse<User> userDataResponse) throws Exception {
                         if (userDataResponse.getErrorCode() == 0) {
                             mView.loginSuccess(userDataResponse.getData());
                         } else {
-                            mView.showFaild(String.valueOf(userDataResponse.getErrorMsg()));
+              //              mView.showFaild(String.valueOf(userDataResponse.getErrorMsg()));
                         }
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-
                     }
                 });
     }

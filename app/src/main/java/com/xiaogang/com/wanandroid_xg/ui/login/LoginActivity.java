@@ -19,18 +19,18 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     protected void initView() {
-
+        mPresenter.login("17620359266", "123456");
     }
 
     @Override
     protected void initInjector() {
-
+        mActivityComponent.inject(this);
     }
 
 
     @Override
     public void loginSuccess(User user) {
-
+        System.out.println(user.toString());
     }
 
     @Override
@@ -58,10 +58,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     }
 
-    @Override
-    public <V> LifecycleTransformer<V> bindToLife() {
-        return null;
-    }
+
 
 
 }

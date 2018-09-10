@@ -16,7 +16,7 @@ import retrofit2.http.POST;
 public interface ApiServer {
 
     //登录
-    @POST("/user/login")
+    @POST("user/login")
     @FormUrlEncoded
     Observable<DataResponse<User>> login(@Field("username") String username, @Field("password") String password);
 }
