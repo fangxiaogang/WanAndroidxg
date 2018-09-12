@@ -29,13 +29,13 @@ public interface ApiServer {
     @GET("/lg/collect/list/{page}/json")
     Observable<DataResponse<MyCollect>> getMyCollect(@Path("page") int page);
 
-    //首页Banner
-    @GET("/banner/json")
-    Observable<DataResponse<List<Banner>>> getHomeBanners();
-
-    //首页数据
-    @GET("/article/list/{page}/json")
-    Observable<DataResponse<Article>> getHomeArticles(@Path("page") int page);
+//    //首页Banner
+//    @GET("/banner/json")
+//    Observable<DataResponse<List<Banner>>> getHomeBanners();
+//
+//    //首页数据
+//    @GET("/article/list/{page}/json")
+//    Observable<DataResponse<Article>> getHomeArticles(@Path("page") int page);
 
 
     //注册
