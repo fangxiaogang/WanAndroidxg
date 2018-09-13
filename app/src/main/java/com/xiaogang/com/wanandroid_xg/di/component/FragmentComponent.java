@@ -25,13 +25,4 @@ public interface FragmentComponent {
 
     Activity getActivity();
 
-//    voidd inject(HomeFragment fragment);
-//
-//    void inject(KnowledgeSystemFragment fragment);
-//
-//    void inject(MyFragment fragment);
-//
-//    void inject(ArticleListFragment fragment);
-//
-//    void inject(HotFragment fragment);
 }
