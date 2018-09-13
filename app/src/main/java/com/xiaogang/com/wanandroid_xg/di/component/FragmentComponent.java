@@ -1,0 +1,37 @@
+package com.xiaogang.com.wanandroid_xg.di.component;
+
+import android.app.Activity;
+import android.content.Context;
+
+import com.xiaogang.com.wanandroid_xg.di.moudule.FragmentModule;
+import com.xiaogang.com.wanandroid_xg.di.scope.ContextLife;
+import com.xiaogang.com.wanandroid_xg.di.scope.PerFragment;
+
+import dagger.Component;
+
+/**
+ * author: fangxiaogang
+ * date: 2018/9/13
+ */
+
+@PerFragment
+@Component(dependencies = ApplicationComponent.class, modules = FragmentModule.class)
+public interface FragmentComponent {
+    @ContextLife("Activity")
+    Context getActivityContext();
+
+    @ContextLife("Application")
+    Context getApplicationContext();
+
+    Activity getActivity();
+
+//    voidd inject(HomeFragment fragment);
+//
+//    void inject(KnowledgeSystemFragment fragment);
+//
+//    void inject(MyFragment fragment);
+//
+//    void inject(ArticleListFragment fragment);
+//
+//    void inject(HotFragment fragment);
+}

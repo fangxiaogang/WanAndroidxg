@@ -39,7 +39,6 @@ public interface ApiServer {
     @GET("/article/list/{page}/json")
     Observable<DataResponse<Article>> getHomeArticles(@Path("page") int page);
 
-
     //注册
     @POST("/user/register")
     @FormUrlEncoded

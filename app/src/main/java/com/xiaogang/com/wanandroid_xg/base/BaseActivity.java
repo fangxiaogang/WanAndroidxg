@@ -26,6 +26,13 @@ import com.xiaogang.com.wanandroid_xg.SupportActivity;
 
 public abstract class BaseActivity <T extends BaseContract.Basepresenter> extends SupportActivity implements BaseContract.Baseview{
 
+    @Nullable
+    @Inject
+    protected T mPresenter;
+
+    protected ActivityComponent mActivityComponent;
+
+
     private Unbinder unbinder;
 
     protected abstract int getLayoutId();
@@ -36,12 +43,6 @@ public abstract class BaseActivity <T extends BaseContract.Basepresenter> extend
     protected abstract void initInjector();
 
 
-
-    @Nullable
-    @Inject
-    protected T mPresenter;
-
-    protected ActivityComponent mActivityComponent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
