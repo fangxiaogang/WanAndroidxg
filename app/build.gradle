@@ -57,4 +57,7 @@ dependencies {
 
     //BottomBarLayout
     implementation 'com.github.chaychan:BottomBarLayout:1.1.2'
+
+    //banner
+    implementation 'com.youth.banner:banner:1.4.10'
 }
