@@ -30,35 +30,19 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
 
     @Override
     public void getBannerdate() {
-//        RetrofitManager.create(ApiServer.class)
-//                .getHomeBanners()
-//                .compose(RxSchedulers.<DataResponse<List<Banner>>>applySchedulers())
-//                .compose(mView.<DataResponse<List<Banner>>>bindToLife())
-//                .subscribe(new Consumer<DataResponse<List<Banner>>>() {
-//                    @Override
-//                    public void accept(DataResponse<List<Banner>> listDataResponse) throws Exception {
-//                        mView.setBannerdate(listDataResponse.getData());
-//                    }
-//                }, new Consumer<Throwable>() {
-//                    @Override
-//                    public void accept(Throwable throwable) throws Exception {
-//
-//                    }
-//                });
-
         RetrofitManager.create(ApiServer.class)
                 .getHomeBanners()
                 .compose(RxSchedulers.<DataResponse<List<Banner>>>applySchedulers())
-                //.compose(mView.<DataResponse<List<Banner>>>bindToLife())
+                .compose(mView.<DataResponse<List<Banner>>>bindToLife())
                 .subscribe(new Consumer<DataResponse<List<Banner>>>() {
                     @Override
-                    public void accept(DataResponse<List<Banner>> dataResponse) throws Exception {
-
+                    public void accept(DataResponse<List<Banner>> listDataResponse) throws Exception {
+                        mView.setBannerdate(listDataResponse.getData());
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        mView.showFaild(throwable.getMessage());
+
                     }
                 });
 

@@ -138,6 +138,6 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
 
     @Override
     public <V> LifecycleTransformer<V> bindToLife() {
-        return null;
+        return this.bindToLifecycle();
     }
 }
