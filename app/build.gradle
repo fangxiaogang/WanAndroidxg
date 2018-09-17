@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.xiaogang.com.wanandroid_xg"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -51,4 +51,7 @@ dependencies {
 
     //utilcode
     implementation 'com.blankj:utilcode:1.9.6'
+
+    //BottomBarLayout
+    implementation 'com.github.chaychan:BottomBarLayout:1.1.2'
 }
