@@ -48,5 +48,9 @@ public class MyApplication extends Application {
         return mApplicationComponent;
     }
 
+    public static MyApplication getInstance() {
+        return myApplication;
+    }
+
 
 }

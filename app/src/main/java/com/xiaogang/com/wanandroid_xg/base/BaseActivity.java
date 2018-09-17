@@ -95,6 +95,28 @@ public abstract class BaseActivity <T extends BaseContract.Basepresenter> extend
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void showSuccess(String message) {
+
+    }
+
+    @Override
+    public void showFaild(String message) {
+
+    }
+
+
+
+    @Override
     public <T> LifecycleTransformer<T> bindToLife() {
         return this.bindToLifecycle();
     }

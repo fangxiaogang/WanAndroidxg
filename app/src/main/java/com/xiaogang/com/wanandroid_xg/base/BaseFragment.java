@@ -2,8 +2,9 @@ package com.xiaogang.com.wanandroid_xg.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.blankj.utilcode.util.NetworkUtils;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.RxFragment;
 import com.xiaogang.com.wanandroid_xg.MyApplication;
+import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.SupportFragment;
 import com.xiaogang.com.wanandroid_xg.di.component.DaggerFragmentComponent;
 import com.xiaogang.com.wanandroid_xg.di.component.FragmentComponent;
@@ -19,6 +21,7 @@ import com.xiaogang.com.wanandroid_xg.di.moudule.FragmentModule;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -64,6 +67,12 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
         return mRootView;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+        detachView();
+    }
 
 
     private void inflaterView(LayoutInflater inflater, @Nullable ViewGroup container) {
@@ -74,8 +83,13 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
 
 
     private void initFragmentComponent() {
+//        mFragmentComponent = DaggerFragmentComponent.builder()
+//                .applicationComponent(((MyApplication) getActivity().getApplication()).getApplicationComponent())
+//                .fragmentModule(new FragmentModule(this))
+//                .build();
+
         mFragmentComponent = DaggerFragmentComponent.builder()
-                .applicationComponent(((MyApplication) getActivity().getApplication()).getApplicationComponent())
+                .applicationComponent(MyApplication.getInstance().getApplicationComponent())
                 .fragmentModule(new FragmentModule(this))
                 .build();
     }

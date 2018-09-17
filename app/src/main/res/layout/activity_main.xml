@@ -1,9 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.main.MainActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/layout_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <com.chaychan.library.BottomBarLayout
+        android:id="@+id/bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        >
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:iconNormal="@drawable/homeicon"
+            app:iconSelected="@drawable/homeicon"
+            app:itemText="首页"
+            app:textColorNormal="@color/selector_grey"
+            app:textColorSelected="@color/selector_grey"
+            app:itemTextSize="8sp"
+            app:itemMarginTop="2dp"
+            />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:iconNormal="@drawable/homeicon"
+            app:iconSelected="@drawable/homeicon"
+            app:itemText="知识体系"
+            app:textColorNormal="@color/selector_grey"
+            app:textColorSelected="@color/selector_grey"
+            app:itemTextSize="8sp"
+            app:itemMarginTop="2dp"
+            />
+
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:iconNormal="@drawable/homeicon"
+            app:iconSelected="@drawable/homeicon"
+            app:itemText="知识体系"
+            app:textColorNormal="@color/selector_grey"
+            app:textColorSelected="@color/selector_grey"
+            app:itemTextSize="8sp"
+            app:itemMarginTop="2dp"
+            />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:iconNormal="@drawable/homeicon"
+            app:iconSelected="@drawable/homeicon"
+            app:itemText="导航"
+            app:textColorNormal="@color/selector_grey"
+            app:textColorSelected="@color/selector_grey"
+            app:itemTextSize="8sp"
+            app:itemMarginTop="2dp"
+            />
+
+    </com.chaychan.library.BottomBarLayout>
+
+
+</LinearLayout>

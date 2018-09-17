@@ -6,6 +6,8 @@ import android.content.Context;
 import com.xiaogang.com.wanandroid_xg.di.moudule.FragmentModule;
 import com.xiaogang.com.wanandroid_xg.di.scope.ContextLife;
 import com.xiaogang.com.wanandroid_xg.di.scope.PerFragment;
+import com.xiaogang.com.wanandroid_xg.ui.home.HomeFragment;
+
 
 import dagger.Component;
 
@@ -24,5 +26,7 @@ public interface FragmentComponent {
     Context getApplicationContext();
 
     Activity getActivity();
+
+    void inject(HomeFragment fragment);
 
 }
