@@ -74,23 +74,6 @@ public class Article {
     }
 
     public static class DatasBean {
-        /**
-         * id : 1578
-         * title : 这些 Drawable 的小技巧，你都了解吗？
-         * chapterId : 168
-         * chapterName : Drawable
-         * envelopePic : null
-         * link : https://juejin.im/post/5a28b2d0f265da431c703153
-         * author :  承香墨影
-         * origin : null
-         * publishTime : 1512660849000
-         * zan : null
-         * desc : null
-         * visible : 1
-         * niceDate : 2017-12-07
-         * courseId : 13
-         * collect : false
-         */
 
         private int id;
         private String title;

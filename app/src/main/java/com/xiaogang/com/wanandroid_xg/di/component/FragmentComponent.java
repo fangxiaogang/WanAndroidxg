@@ -7,6 +7,7 @@ import com.xiaogang.com.wanandroid_xg.di.moudule.FragmentModule;
 import com.xiaogang.com.wanandroid_xg.di.scope.ContextLife;
 import com.xiaogang.com.wanandroid_xg.di.scope.PerFragment;
 import com.xiaogang.com.wanandroid_xg.ui.home.HomeFragment;
+import com.xiaogang.com.wanandroid_xg.ui.knowledge.KnowledgeFragment;
 
 
 import dagger.Component;
@@ -28,5 +29,7 @@ public interface FragmentComponent {
     Activity getActivity();
 
     void inject(HomeFragment fragment);
+
+    void inject(KnowledgeFragment fragment);
 
 }

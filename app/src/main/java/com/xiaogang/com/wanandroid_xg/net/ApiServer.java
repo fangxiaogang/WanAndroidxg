@@ -3,6 +3,7 @@ package com.xiaogang.com.wanandroid_xg.net;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
 import com.xiaogang.com.wanandroid_xg.bean.DataResponse;
+import com.xiaogang.com.wanandroid_xg.bean.Knowledge;
 import com.xiaogang.com.wanandroid_xg.bean.MyCollect;
 import com.xiaogang.com.wanandroid_xg.bean.User;
 
@@ -43,4 +44,10 @@ public interface ApiServer {
     @POST("/user/register")
     @FormUrlEncoded
     Observable<DataResponse<User>> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
+
+
+    //知识体系
+    //http://www.wanandroid.com/tree/json
+    @GET("/tree/json")
+    Observable<DataResponse<List<Knowledge>>> getKnowledge();
 }

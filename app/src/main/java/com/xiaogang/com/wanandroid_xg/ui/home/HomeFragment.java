@@ -11,7 +11,6 @@ import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
 import com.xiaogang.com.wanandroid_xg.utils.GlideImageLoader;
-import com.youth.banner.BannerConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +49,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
     protected void initView(View view) {
 
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mrecyclerView.setAdapter(mhomeAdapter = new HomeAdapter(R.layout.item_article,marticle));
+        mrecyclerView.setAdapter(mhomeAdapter = new HomeAdapter(R.layout.item_home,marticle));
 
         mHomeBannerHeadView = LayoutInflater.from(getContext()).inflate(R.layout.layout_home_banner_head, null);
         mbanner = (com.youth.banner.Banner) mHomeBannerHeadView.findViewById(R.id.banner_ads);

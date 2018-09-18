@@ -11,6 +11,7 @@ import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.SupportFragment;
 import com.xiaogang.com.wanandroid_xg.base.BaseActivity;
 import com.xiaogang.com.wanandroid_xg.ui.home.HomeFragment;
+import com.xiaogang.com.wanandroid_xg.ui.knowledge.KnowledgeFragment;
 
 import butterknife.BindView;
 import me.yokeyword.fragmentation.ISupportFragment;
@@ -20,7 +21,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.bottombar)
     BottomBarLayout mbottomBarLayout;
 
-    private SupportFragment[] mFragments = new SupportFragment[1];
+    private SupportFragment[] mFragments = new SupportFragment[2];
 
     private long mExitTime;
 
@@ -35,20 +36,20 @@ public class MainActivity extends BaseActivity {
         SupportFragment homeFragment = findFragment(HomeFragment.class);
         if (homeFragment == null) {
             mFragments[0] = HomeFragment.newInstance();
-//            mFragments[1] = HomeFragment.newInstance();
+            mFragments[1] = KnowledgeFragment.newInstance();
 //            mFragments[2] = HomeFragment.newInstance();
 //            mFragments[3] = HomeFragment.newInstance();
             loadMultipleRootFragment(R.id.layout_fragment, 0,
-                    mFragments[0]
-//                    ,
-//                    mFragments[1],
+                    mFragments[0],
+                    mFragments[1]
+// ,
 //                    mFragments[2],
 //                    mFragments[3]
             );
         } else {
             // 这里我们需要拿到mFragments的引用
             mFragments[0] = homeFragment;
-//            mFragments[1] = findFragment(HomeFragment.class);
+            mFragments[1] = findFragment(KnowledgeFragment.class);
 //            mFragments[2] = findFragment(HomeFragment.class);
 //            mFragments[3] = findFragment(HomeFragment.class);
         }
@@ -56,8 +57,10 @@ public class MainActivity extends BaseActivity {
 
         mbottomBarLayout.setOnItemSelectedListener(new BottomBarLayout.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(BottomBarItem bottomBarItem, int i, int i1) {
+            public void onItemSelected(BottomBarItem bottomBarItem, int before, int current) {
+                showHideFragment(mFragments[current], mFragments[before]);
 
+//                ToastUtils.showShort("ss"+ before +  "sss" + current );
             }
         });
     }
