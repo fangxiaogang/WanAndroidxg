@@ -34,8 +34,7 @@ public class KnowledgeFragment extends BaseFragment<KnowledgePresenter> implemen
 
     @Override
     public void setknowledgedate(List<Knowledge> knowledges) {
-        System.out.println(knowledges.get(0).getName());
-        ToastUtils.showShort(knowledges.get(0).getName());
+
     }
 
     public static KnowledgeFragment newInstance() {
