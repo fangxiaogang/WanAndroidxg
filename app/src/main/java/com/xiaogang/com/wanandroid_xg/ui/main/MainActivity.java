@@ -12,6 +12,8 @@ import com.xiaogang.com.wanandroid_xg.SupportFragment;
 import com.xiaogang.com.wanandroid_xg.base.BaseActivity;
 import com.xiaogang.com.wanandroid_xg.ui.home.HomeFragment;
 import com.xiaogang.com.wanandroid_xg.ui.knowledge.KnowledgeFragment;
+import com.xiaogang.com.wanandroid_xg.ui.mine.MineFragment;
+import com.xiaogang.com.wanandroid_xg.ui.project.ProjectFragment;
 
 import butterknife.BindView;
 import me.yokeyword.fragmentation.ISupportFragment;
@@ -21,7 +23,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.bottombar)
     BottomBarLayout mbottomBarLayout;
 
-    private SupportFragment[] mFragments = new SupportFragment[2];
+    private SupportFragment[] mFragments = new SupportFragment[4];
 
     private long mExitTime;
 
@@ -37,21 +39,20 @@ public class MainActivity extends BaseActivity {
         if (homeFragment == null) {
             mFragments[0] = HomeFragment.newInstance();
             mFragments[1] = KnowledgeFragment.newInstance();
-//            mFragments[2] = HomeFragment.newInstance();
-//            mFragments[3] = HomeFragment.newInstance();
+            mFragments[2] = ProjectFragment.newInstance();
+            mFragments[3] = MineFragment.newInstance();
             loadMultipleRootFragment(R.id.layout_fragment, 0,
                     mFragments[0],
-                    mFragments[1]
-// ,
-//                    mFragments[2],
-//                    mFragments[3]
+                    mFragments[1],
+                    mFragments[2],
+                    mFragments[3]
             );
         } else {
             // 这里我们需要拿到mFragments的引用
             mFragments[0] = homeFragment;
             mFragments[1] = findFragment(KnowledgeFragment.class);
-//            mFragments[2] = findFragment(HomeFragment.class);
-//            mFragments[3] = findFragment(HomeFragment.class);
+            mFragments[2] = findFragment(ProjectFragment.class);
+            mFragments[3] = findFragment(MineFragment.class);
         }
 
 

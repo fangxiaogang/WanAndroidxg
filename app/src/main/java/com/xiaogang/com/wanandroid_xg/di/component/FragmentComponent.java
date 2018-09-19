@@ -8,6 +8,8 @@ import com.xiaogang.com.wanandroid_xg.di.scope.ContextLife;
 import com.xiaogang.com.wanandroid_xg.di.scope.PerFragment;
 import com.xiaogang.com.wanandroid_xg.ui.home.HomeFragment;
 import com.xiaogang.com.wanandroid_xg.ui.knowledge.KnowledgeFragment;
+import com.xiaogang.com.wanandroid_xg.ui.login.LoginFragment;
+import com.xiaogang.com.wanandroid_xg.ui.mycollect.MyCollectFragment;
 
 
 import dagger.Component;
@@ -32,4 +34,7 @@ public interface FragmentComponent {
 
     void inject(KnowledgeFragment fragment);
 
+    void inject(LoginFragment fragment);
+
+    void inject(MyCollectFragment fragment);
 }
