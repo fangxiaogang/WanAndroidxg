@@ -5,6 +5,7 @@ import com.xiaogang.com.wanandroid_xg.bean.Banner;
 import com.xiaogang.com.wanandroid_xg.bean.DataResponse;
 import com.xiaogang.com.wanandroid_xg.bean.Knowledge;
 import com.xiaogang.com.wanandroid_xg.bean.MyCollect;
+import com.xiaogang.com.wanandroid_xg.bean.Project;
 import com.xiaogang.com.wanandroid_xg.bean.User;
 
 import java.util.List;
@@ -50,4 +51,14 @@ public interface ApiServer {
     //http://www.wanandroid.com/tree/json
     @GET("/tree/json")
     Observable<DataResponse<List<Knowledge>>> getKnowledge();
+
+    //项目
+    //http://www.wanandroid.com/project/tree/json
+    @GET("/project/tree/json")
+    Observable<DataResponse<List<Project>>> getProject();
+
+    //添加收藏
+    @POST("/lg/collect/{id}/json")
+    Observable<DataResponse> addCollectArticle(@Path("id") int id);
+
 }

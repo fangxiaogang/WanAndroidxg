@@ -1,6 +1,9 @@
 package com.xiaogang.com.wanandroid_xg.ui.project;
 
 import com.xiaogang.com.wanandroid_xg.base.BaseContract;
+import com.xiaogang.com.wanandroid_xg.bean.Project;
+
+import java.util.List;
 
 /**
  * author: fangxiaogang
@@ -11,7 +14,7 @@ public interface ProjectContract {
 
     interface View extends BaseContract.Baseview{
 
-        void setProjectDate ();
+        void setProjectDate (List<Project> projects);
 
     }
 
