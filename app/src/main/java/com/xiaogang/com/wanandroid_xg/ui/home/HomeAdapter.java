@@ -31,6 +31,5 @@ public class HomeAdapter extends BaseQuickAdapter<Article.DatasBean,BaseViewHold
         helper.setText(R.id.tvTitle, Html.fromHtml(item.getTitle()));
         helper.setText(R.id.tvChapterName, item.getChapterName());
         helper.addOnClickListener(R.id.tvChapterName);
-        helper.addOnClickListener(R.id.ivCollect);
     }
 }

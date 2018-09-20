@@ -51,8 +51,8 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mrecyclerView.setAdapter(mhomeAdapter = new HomeAdapter(R.layout.item_home,marticle));
 
-        mHomeBannerHeadView = LayoutInflater.from(getContext()).inflate(R.layout.layout_home_banner_head, null);
-        mbanner = (com.youth.banner.Banner) mHomeBannerHeadView.findViewById(R.id.banner_ads);
+        mHomeBannerHeadView = LayoutInflater.from(getContext()).inflate(R.layout.item_bannerhead, null);
+        mbanner = (com.youth.banner.Banner) mHomeBannerHeadView.findViewById(R.id.banner_home);
         mhomeAdapter.addHeaderView(mHomeBannerHeadView);
 
         mPresenter.getBannerdate();

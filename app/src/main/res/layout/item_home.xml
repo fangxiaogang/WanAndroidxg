@@ -4,33 +4,25 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/dp_10">
+        android:paddingLeft="@dimen/px25"
+        android:paddingTop="@dimen/px30"
+        android:paddingRight="@dimen/px25"
+        android:paddingBottom="@dimen/px30">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:visibility="gone">
 
-            <ImageView
-                android:id="@+id/civHeadPortrait"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                />
+
+
 
             <TextView
-                android:id="@+id/tvAuthor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dp_4"
-                android:layout_toRightOf="@id/civHeadPortrait"
-                android:text="作者"/>
 
-            <TextView
-                android:id="@+id/tvNiceDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -42,36 +34,93 @@
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:maxLines="2"
             android:text="标题"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textColor="#2f2f2f"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/px20"
+            android:maxLines="2"
+            android:text="内容"
+            android:textSize="16sp"
+            android:textColor="#999999"/>
+
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/px5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px50">
+
+
+
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="14sp"
+                android:text="作者"
+                android:textColor="#999999"/>
+
+            <ImageView
+                android:id="@+id/ivtime"
+                android:layout_width="@dimen/px30"
+                android:layout_height="@dimen/px30"
+                android:layout_marginTop="@dimen/px10"
+                android:layout_marginLeft="@dimen/px20"
+                android:layout_toRightOf="@+id/tvAuthor"
+                android:background="@drawable/icon_time"/>
+
+
+            <TextView
+                android:id="@+id/tvNiceDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ivtime"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px5"
+                android:textSize="14sp"
+                android:text="1小时前"
+                android:textColor="#999999"/>
+
+        </RelativeLayout>
+
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tvChapterName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:textSize="14sp"
                 android:text="章节名称"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp"/>
+                android:textColor="#999999"/>
 
-            <ImageView
-                android:id="@+id/ivCollect"
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tvChapterName"
                 android:layout_centerVertical="true"
-                />
+                android:layout_marginLeft="@dimen/px20"
+                android:textSize="14sp"
+                android:text="其他"
+                android:textColor="#999999"/>
+
         </RelativeLayout>
+
+
     </LinearLayout>
 </android.support.v7.widget.CardView>
