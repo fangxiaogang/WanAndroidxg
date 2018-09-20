@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.di.component.ActivityComponent;
 import com.xiaogang.com.wanandroid_xg.MyApplication;
 import com.xiaogang.com.wanandroid_xg.di.component.DaggerActivityComponent;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import com.xiaogang.com.wanandroid_xg.SupportActivity;
+import com.xiaogang.com.wanandroid_xg.utils.StatusBarUtil;
 
 /**
  * author: fangxiaogang
@@ -50,6 +52,8 @@ public abstract class BaseActivity <T extends BaseContract.Basepresenter> extend
         initActivityComponent();
         int layoutId = getLayoutId();
         setContentView(layoutId);
+//        StatusBarUtil.setTranslucentForImageViewInFragment(this, null);
+        StatusBarUtil.setColor(this,getResources().getColor(R.color.white));
         initInjector();
         attachView();
         unbinder = ButterKnife.bind(this);
