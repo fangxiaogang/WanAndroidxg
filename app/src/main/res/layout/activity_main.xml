@@ -13,10 +13,15 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#dddddd"/>
+
     <com.chaychan.library.BottomBarLayout
         android:id="@+id/bottombar"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="@dimen/px80"
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_gravity="bottom"
@@ -28,11 +33,11 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             app:iconNormal="@drawable/homeicon"
-            app:iconSelected="@drawable/homeicon"
+            app:iconSelected="@drawable/homeiconselected"
             app:itemText="首页"
-            app:textColorNormal="@color/selector_grey"
-            app:textColorSelected="@color/selector_grey"
-            app:itemTextSize="8sp"
+            app:textColorNormal="#9e9e9e"
+            app:textColorSelected="#757575"
+            app:itemTextSize="12sp"
             app:itemMarginTop="2dp"
             />
 
@@ -42,10 +47,10 @@
             android:layout_height="match_parent"
             app:iconNormal="@drawable/homeicon"
             app:iconSelected="@drawable/homeicon"
-            app:itemText="知识体系"
-            app:textColorNormal="@color/selector_grey"
-            app:textColorSelected="@color/selector_grey"
-            app:itemTextSize="8sp"
+            app:itemText="体系"
+            app:textColorNormal="#9e9e9e"
+            app:textColorSelected="#757575"
+            app:itemTextSize="12sp"
             app:itemMarginTop="2dp"
             />
 
@@ -56,10 +61,10 @@
             android:layout_height="match_parent"
             app:iconNormal="@drawable/homeicon"
             app:iconSelected="@drawable/homeicon"
-            app:itemText="知识体系"
-            app:textColorNormal="@color/selector_grey"
-            app:textColorSelected="@color/selector_grey"
-            app:itemTextSize="8sp"
+            app:itemText="项目"
+            app:textColorNormal="#9e9e9e"
+            app:textColorSelected="#757575"
+            app:itemTextSize="12sp"
             app:itemMarginTop="2dp"
             />
 
@@ -67,12 +72,12 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            app:iconNormal="@drawable/homeicon"
-            app:iconSelected="@drawable/homeicon"
-            app:itemText="导航"
-            app:textColorNormal="@color/selector_grey"
-            app:textColorSelected="@color/selector_grey"
-            app:itemTextSize="8sp"
+            app:iconNormal="@drawable/mineicon"
+            app:iconSelected="@drawable/mineselected"
+            app:itemText="我的"
+            app:textColorNormal="#9e9e9e"
+            app:textColorSelected="#757575"
+            app:itemTextSize="12sp"
             app:itemMarginTop="2dp"
             />
 
