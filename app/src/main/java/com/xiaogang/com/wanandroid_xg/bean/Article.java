@@ -79,6 +79,7 @@ public class Article {
         private String title;
         private int chapterId;
         private String chapterName;
+        private String superChapterName;
         private String envelopePic;
         private String link;
         private String author;
@@ -122,6 +123,15 @@ public class Article {
         public void setChapterName(String chapterName) {
             this.chapterName = chapterName;
         }
+
+        public String getsuperChapterName() {
+            return superChapterName;
+        }
+
+        public void setsuperChapterName(String superChapterName) {
+            this.superChapterName = superChapterName;
+        }
+
 
         public String getEnvelopePic() {
             return envelopePic;

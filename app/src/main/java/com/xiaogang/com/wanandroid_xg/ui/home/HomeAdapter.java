@@ -3,7 +3,10 @@ package com.xiaogang.com.wanandroid_xg.ui.home;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.text.Html;
+import android.view.View;
+import android.widget.TextView;
 
+import com.blankj.utilcode.util.StringUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.xiaogang.com.wanandroid_xg.R;
@@ -29,7 +32,14 @@ public class HomeAdapter extends BaseQuickAdapter<Article.DatasBean,BaseViewHold
         helper.setText(R.id.tvAuthor, item.getAuthor());
         helper.setText(R.id.tvNiceDate, item.getNiceDate());
         helper.setText(R.id.tvTitle, Html.fromHtml(item.getTitle()));
-        helper.setText(R.id.tvChapterName, item.getChapterName());
+        TextView textView = helper.getView(R.id.tvContent);
+        if (!StringUtils.isEmpty(item.getDesc())){
+            helper.setText(R.id.tvContent, Html.fromHtml(item.getDesc()));
+            textView.setVisibility(View.VISIBLE);
+        }else {
+            textView.setVisibility(View.GONE);
+        }
+        helper.setText(R.id.tvChapterName,  item.getsuperChapterName() + " / "+ item.getChapterName());
         helper.addOnClickListener(R.id.tvChapterName);
     }
 }
