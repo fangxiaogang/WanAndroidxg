@@ -8,10 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
+import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
 import com.xiaogang.com.wanandroid_xg.utils.GlideImageLoader;
 
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import butterknife.BindView;
  * date: 2018/9/17
  */
 
-public class HomeFragment extends BaseFragment<HomePresenter> implements HomeContract.View,HomeAdapter.RequestLoadMoreListener,SwipeRefreshLayout.OnRefreshListener {
+public class HomeFragment extends BaseFragment<HomePresenter> implements HomeContract.View,HomeAdapter.RequestLoadMoreListener,HomeAdapter.OnItemClickListener,SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.mswipeRefreshLayout)
     SwipeRefreshLayout mswipeRefreshLayout;
@@ -58,6 +60,8 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mrecyclerView.setAdapter(mhomeAdapter = new HomeAdapter(R.layout.item_home,marticle));
 
+        mhomeAdapter.setOnItemClickListener(this);
+
         mHomeBannerHeadView = LayoutInflater.from(getContext()).inflate(R.layout.item_bannerhead, null);
         mbanner = (com.youth.banner.Banner) mHomeBannerHeadView.findViewById(R.id.banner_home);
         mhomeAdapter.addHeaderView(mHomeBannerHeadView);
@@ -90,10 +94,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     }
 
-    @Override
-    public void setmoredata(Article articles) {
-
-    }
 
     public static HomeFragment newInstance() {
         Bundle args = new Bundle();
@@ -112,4 +112,9 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
         mPresenter.refresh();
     }
 
+    @Override
+    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+        start(WebcontentFragment.newInstance("www."));
+
+    }
 }

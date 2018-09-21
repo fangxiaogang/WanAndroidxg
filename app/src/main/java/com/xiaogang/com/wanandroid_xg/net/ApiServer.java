@@ -59,6 +59,6 @@ public interface ApiServer {
 
     //添加收藏
     @POST("/lg/collect/{id}/json")
-    Observable<DataResponse> addCollectArticle(@Path("id") int id);
+    Observable<DataResponse> addCollect(@Path("id") int id);
 
 }

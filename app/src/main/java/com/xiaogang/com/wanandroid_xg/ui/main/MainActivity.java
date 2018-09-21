@@ -48,6 +48,8 @@ public class MainActivity extends BaseActivity {
                     mFragments[3]
             );
         } else {
+            // 这里库已经做了Fragment恢复,所有不需要额外的处理了, 不会出现重叠问题
+
             // 这里我们需要拿到mFragments的引用
             mFragments[0] = homeFragment;
             mFragments[1] = findFragment(KnowledgeFragment.class);
@@ -83,6 +85,10 @@ public class MainActivity extends BaseActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void startBrotherFragment(me.yokeyword.fragmentation.SupportFragment targetFragment) {
+        start(targetFragment);
     }
 
 }

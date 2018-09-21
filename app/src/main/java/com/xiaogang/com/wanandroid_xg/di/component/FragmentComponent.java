@@ -10,6 +10,7 @@ import com.xiaogang.com.wanandroid_xg.ui.home.HomeFragment;
 import com.xiaogang.com.wanandroid_xg.ui.knowledge.KnowledgeFragment;
 import com.xiaogang.com.wanandroid_xg.ui.login.LoginFragment;
 import com.xiaogang.com.wanandroid_xg.ui.mycollect.MyCollectFragment;
+import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
 
 
 import dagger.Component;
@@ -37,4 +38,6 @@ public interface FragmentComponent {
     void inject(LoginFragment fragment);
 
     void inject(MyCollectFragment fragment);
+
+    void inject(WebcontentFragment fragment);
 }
