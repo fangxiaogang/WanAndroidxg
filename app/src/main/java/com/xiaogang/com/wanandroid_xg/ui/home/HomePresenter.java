@@ -23,6 +23,8 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
 
     private int mPage;
 
+    private boolean isRefresh = true;
+
     @Inject
     public HomePresenter() {
 
@@ -57,7 +59,11 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
                 .subscribe(new Consumer<DataResponse<Article>>() {
                     @Override
                     public void accept(DataResponse<Article> articleDataResponse) throws Exception {
-                        mView.sethomedate(articleDataResponse.getData());
+                        if (isRefresh) {
+                            mView.sethomedate(articleDataResponse.getData(),0);
+                        }else {
+                            mView.sethomedate(articleDataResponse.getData(),1);
+                        }
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -67,14 +73,20 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
                 });
     }
 
+
+
     @Override
     public void refresh() {
-
+        isRefresh = true;
+        getBannerdate();
+        gethomedate();
     }
 
     @Override
     public void loadMore() {
-
+        mPage ++;
+        isRefresh = false;
+        gethomedate();
     }
 
 

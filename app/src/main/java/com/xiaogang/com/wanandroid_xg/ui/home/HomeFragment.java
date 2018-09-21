@@ -1,11 +1,13 @@
 package com.xiaogang.com.wanandroid_xg.ui.home;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
@@ -22,7 +24,10 @@ import butterknife.BindView;
  * date: 2018/9/17
  */
 
-public class HomeFragment extends BaseFragment<HomePresenter> implements HomeContract.View {
+public class HomeFragment extends BaseFragment<HomePresenter> implements HomeContract.View,HomeAdapter.RequestLoadMoreListener,SwipeRefreshLayout.OnRefreshListener {
+
+    @BindView(R.id.mswipeRefreshLayout)
+    SwipeRefreshLayout mswipeRefreshLayout;
 
     @BindView(R.id.homerecycyleview)
     RecyclerView mrecyclerView;
@@ -48,13 +53,15 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
     @Override
     protected void initView(View view) {
 
+        mswipeRefreshLayout.setOnRefreshListener(this);
+        mswipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.maincolor));
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mrecyclerView.setAdapter(mhomeAdapter = new HomeAdapter(R.layout.item_home,marticle));
 
         mHomeBannerHeadView = LayoutInflater.from(getContext()).inflate(R.layout.item_bannerhead, null);
         mbanner = (com.youth.banner.Banner) mHomeBannerHeadView.findViewById(R.id.banner_home);
         mhomeAdapter.addHeaderView(mHomeBannerHeadView);
-
+        mhomeAdapter.setOnLoadMoreListener(this);
         mPresenter.getBannerdate();
         mPresenter.gethomedate();
     }
@@ -71,8 +78,21 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
     }
 
     @Override
-    public void sethomedate(Article articles) {
-        mhomeAdapter.setNewData(articles.getDatas());
+    public void sethomedate(Article articles,int type) {
+        if (type == 0) {
+            mhomeAdapter.setNewData(articles.getDatas());
+            mswipeRefreshLayout.setRefreshing(false);
+            mhomeAdapter.loadMoreComplete();
+        }else if (type == 1) {
+            mhomeAdapter.addData(articles.getDatas());
+            mhomeAdapter.loadMoreComplete();
+        }
+
+    }
+
+    @Override
+    public void setmoredata(Article articles) {
+
     }
 
     public static HomeFragment newInstance() {
@@ -80,6 +100,16 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
         HomeFragment fragment = new HomeFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onLoadMoreRequested() {
+        mPresenter.loadMore();
+    }
+
+    @Override
+    public void onRefresh() {
+        mPresenter.refresh();
     }
 
 }

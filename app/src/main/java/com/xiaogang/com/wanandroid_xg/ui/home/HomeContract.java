@@ -17,7 +17,9 @@ public interface HomeContract {
 
         void setBannerdate (List<Banner> bannerers);
 
-        void sethomedate (Article articles);
+        void sethomedate (Article articles,int type);
+
+        void setmoredata (Article articles);
     }
 
     interface Presenter extends BaseContract.Basepresenter<View> {
