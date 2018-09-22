@@ -36,6 +36,8 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
 
     }
 
+
+
     @Override
     protected void initView(View view) {
         test.setOnClickListener(new View.OnClickListener() {

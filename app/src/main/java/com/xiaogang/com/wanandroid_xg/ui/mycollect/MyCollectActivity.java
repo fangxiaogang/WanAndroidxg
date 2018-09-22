@@ -13,7 +13,7 @@ public class MyCollectActivity extends BaseActivity<MyCollectPresenter> implemen
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.fragment_main;
     }
 
     @Override

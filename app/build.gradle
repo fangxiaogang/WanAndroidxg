@@ -48,7 +48,7 @@ dependencies {
 
     //fragmentation
     implementation 'me.yokeyword:fragmentation:1.3.3'
-
+    implementation 'me.yokeyword:fragmentation-swipeback:1.3.6'
     //
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
 

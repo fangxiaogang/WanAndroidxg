@@ -1,6 +1,5 @@
 package com.xiaogang.com.wanandroid_xg.ui.login;
 
-import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseActivity;
 import com.xiaogang.com.wanandroid_xg.bean.User;
@@ -14,7 +13,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.fragment_main;
     }
 
     @Override

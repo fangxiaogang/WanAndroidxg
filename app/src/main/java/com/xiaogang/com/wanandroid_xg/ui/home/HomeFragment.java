@@ -13,7 +13,9 @@ import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
+import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
 import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
+import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment2;
 import com.xiaogang.com.wanandroid_xg.utils.GlideImageLoader;
 
 import java.util.ArrayList;
@@ -114,7 +116,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        start(WebcontentFragment.newInstance("www."));
-
+//        start(WebcontentFragment.newInstance("www."));
+        ((MainFragment) getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance("www"));
     }
 }
