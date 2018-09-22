@@ -31,9 +31,6 @@
                 android:layout_marginTop="@dimen/px18"
                 android:layout_marginRight="@dimen/px18"
                 />
-
-
-
         </RelativeLayout>
 
 

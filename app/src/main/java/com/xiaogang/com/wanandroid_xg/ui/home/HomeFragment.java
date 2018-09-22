@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -117,6 +118,26 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 //        start(WebcontentFragment.newInstance("www."));
-        ((MainFragment) getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance("www"));
+        ((MainFragment) getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(mhomeAdapter.getItem(position).getLink()));
     }
+
+
+    private static final long WAIT_TIME = 2000L;
+    private long TOUCH_TIME = 0;
+    /**
+     * 处理回退事件
+     *
+     * @return
+     */
+    @Override
+    public boolean onBackPressedSupport() {
+        if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
+            _mActivity.finish();
+        } else {
+            TOUCH_TIME = System.currentTimeMillis();
+            Toast.makeText(_mActivity, "再按一次退出", Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
+
 }

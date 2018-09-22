@@ -74,5 +74,6 @@ dependencies {
     //airbnb
     implementation 'com.airbnb.android:lottie:2.1.0'
 
-
+    //agentweb
+    implementation 'com.just.agentweb:agentweb:4.0.2'
 }

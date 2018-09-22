@@ -77,6 +77,7 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
 
     @Override
     public void refresh() {
+        mPage = 0;
         isRefresh = true;
         getBannerdate();
         gethomedate();
