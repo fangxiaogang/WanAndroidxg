@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,15 +23,26 @@ import butterknife.BindView;
 
 public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implements WebcontentContract.View {
 
-    @BindView(R.id.test)
-    TextView test;
+    @BindView(R.id.backtitle)
+    ImageView backtitle;
+
+    @BindView(R.id.moretitle)
+    ImageView moretitle;
+
+    @BindView(R.id.titlecontent)
+    TextView titlecontent;
+
 
     @BindView(R.id.mweblin)
     LinearLayout mweblin;
 
     private String link;
 
+    private String content;
+
     private static final String URL = "url";
+
+    private static final String CONTENT = "content";
 
     private AgentWeb mAgentWeb;
 
@@ -48,6 +60,7 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         link = getArguments().getString(URL);
+        content = getArguments().getString(CONTENT);
     }
 
     @Override
@@ -58,10 +71,11 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
                 .createAgentWeb()//
                 .ready()
                 .go(link);
-        test.setOnClickListener(new View.OnClickListener() {
+        titlecontent.setText(content);
+        backtitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAgentWeb.back();
+
             }
         });
 
@@ -69,10 +83,11 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
 
 
 
-    public static WebcontentFragment newInstance(String url) {
+    public static WebcontentFragment newInstance(String url,String content) {
         WebcontentFragment fragment = new WebcontentFragment();
         Bundle args = new Bundle();
         args.putString(URL, url);
+        args.putString(CONTENT, content);
         fragment.setArguments(args);
         return fragment;
     }
