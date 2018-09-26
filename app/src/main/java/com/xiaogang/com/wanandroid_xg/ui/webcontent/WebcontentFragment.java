@@ -12,7 +12,9 @@ import android.widget.Toast;
 import com.blankj.utilcode.util.ToastUtils;
 import com.just.agentweb.AgentWeb;
 import com.xiaogang.com.wanandroid_xg.R;
+import com.xiaogang.com.wanandroid_xg.SupportFragment;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
+import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
 
 import butterknife.BindView;
 
@@ -75,7 +77,12 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
         backtitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // 任意同栈内的Fragment中：
+                MainFragment fragment = findFragment(MainFragment.class);
+                Bundle newBundle = new Bundle();
+                fragment.putNewBundle(newBundle);
+                // 在栈内的HomeFragment以SingleTask模式启动（即在其之上的Fragment会出栈）
+                start(fragment, SupportFragment.SINGLETASK);
             }
         });
 

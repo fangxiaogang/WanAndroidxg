@@ -12,9 +12,9 @@
 
         <ImageView
             android:id="@+id/backtitle"
-            android:layout_width="@dimen/px50"
-            android:layout_height="@dimen/px50"
-            android:layout_marginTop="@dimen/px15"
+            android:layout_width="@dimen/px30"
+            android:layout_height="@dimen/px30"
+            android:layout_marginTop="@dimen/px25"
             android:layout_marginLeft="@dimen/px30"
             android:background="@drawable/icon_back"
             />
@@ -32,12 +32,12 @@
         
         <ImageView
             android:id="@+id/moretitle"
-            android:layout_width="@dimen/px44"
-            android:layout_height="@dimen/px44"
+            android:layout_width="@dimen/px30"
+            android:layout_height="@dimen/px30"
             android:layout_alignParentRight="true"
             android:background="@drawable/icon_more"
-            android:layout_marginTop="@dimen/px18"
-            android:layout_marginRight="@dimen/px18"
+            android:layout_marginTop="@dimen/px25"
+            android:layout_marginRight="@dimen/px25"
             />
     </RelativeLayout>
 
