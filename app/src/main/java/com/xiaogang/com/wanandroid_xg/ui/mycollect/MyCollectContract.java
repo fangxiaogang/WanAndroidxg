@@ -1,7 +1,7 @@
 package com.xiaogang.com.wanandroid_xg.ui.mycollect;
 
 import com.xiaogang.com.wanandroid_xg.base.BaseContract;
-import com.xiaogang.com.wanandroid_xg.bean.MyCollect;
+import com.xiaogang.com.wanandroid_xg.bean.Article;
 
 /**
  * author: fangxiaogang
@@ -12,7 +12,7 @@ public interface MyCollectContract {
 
     interface View extends BaseContract.Baseview {
 
-        void getMyCollectSuccess (MyCollect myCollect);
+        void getMyCollectSuccess (Article article);
 
     }
 

@@ -1,8 +1,8 @@
 package com.xiaogang.com.wanandroid_xg.ui.mycollect;
 
 import com.xiaogang.com.wanandroid_xg.base.BasePresenter;
+import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.bean.DataResponse;
-import com.xiaogang.com.wanandroid_xg.bean.MyCollect;
 import com.xiaogang.com.wanandroid_xg.net.ApiServer;
 import com.xiaogang.com.wanandroid_xg.net.RetrofitManager;
 import com.xiaogang.com.wanandroid_xg.utils.RxSchedulers;
@@ -28,11 +28,11 @@ public class MyCollectPresenter extends BasePresenter<MyCollectContract.View> im
     public void getMyCollects() {
         RetrofitManager.create(ApiServer.class)
                 .getMyCollect(0)
-                .compose(RxSchedulers.<DataResponse<MyCollect>>applySchedulers())
-                .compose(mView.<DataResponse<MyCollect>>bindToLife())
-                .subscribe(new Consumer<DataResponse<MyCollect>>() {
+                .compose(RxSchedulers.<DataResponse<Article>>applySchedulers())
+                .compose(mView.<DataResponse<Article>>bindToLife())
+                .subscribe(new Consumer<DataResponse<Article>>() {
                     @Override
-                    public void accept(DataResponse<MyCollect> myCollectDataResponse) throws Exception {
+                    public void accept(DataResponse<Article> myCollectDataResponse) throws Exception {
                         mView.getMyCollectSuccess(myCollectDataResponse.getData());
                     }
                 }, new Consumer<Throwable>() {

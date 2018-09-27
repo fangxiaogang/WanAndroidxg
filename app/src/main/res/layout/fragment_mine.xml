@@ -3,9 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/colorAccent"
     >
 
+    <LinearLayout
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px100"
+        android:orientation="horizontal"
+        >
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/out"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px100"
+        android:orientation="horizontal"
+       >
+
+    </LinearLayout>
 
 </LinearLayout>

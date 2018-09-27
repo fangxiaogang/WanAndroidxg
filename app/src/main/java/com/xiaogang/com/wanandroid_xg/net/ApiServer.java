@@ -4,7 +4,6 @@ import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
 import com.xiaogang.com.wanandroid_xg.bean.DataResponse;
 import com.xiaogang.com.wanandroid_xg.bean.Knowledge;
-import com.xiaogang.com.wanandroid_xg.bean.MyCollect;
 import com.xiaogang.com.wanandroid_xg.bean.Project;
 import com.xiaogang.com.wanandroid_xg.bean.User;
 
@@ -31,7 +30,7 @@ public interface ApiServer {
 
     //我的收藏
     @GET("/lg/collect/list/{page}/json")
-    Observable<DataResponse<MyCollect>> getMyCollect(@Path("page") int page);
+    Observable<DataResponse<Article>> getMyCollect(@Path("page") int page);
 
     //首页Banner
     @GET("/banner/json")

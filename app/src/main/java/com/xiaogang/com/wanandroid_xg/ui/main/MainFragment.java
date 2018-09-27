@@ -12,7 +12,6 @@ import com.xiaogang.com.wanandroid_xg.ui.knowledge.KnowledgeFragment;
 import com.xiaogang.com.wanandroid_xg.ui.mine.MineFragment;
 import com.xiaogang.com.wanandroid_xg.ui.project.ProjectFragment;
 import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
-import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment2;
 
 import butterknife.BindView;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -88,7 +87,7 @@ public class MainFragment  extends BaseFragment {
      * start other BrotherFragment
      * @param targetFragment
      */
-    public void startBrotherFragment(WebcontentFragment targetFragment) {
+    public void startBrotherFragment(com.xiaogang.com.wanandroid_xg.SupportFragment targetFragment) {
         start(targetFragment);
     }
 

@@ -2,7 +2,7 @@ package com.xiaogang.com.wanandroid_xg.ui.mycollect;
 
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseActivity;
-import com.xiaogang.com.wanandroid_xg.bean.MyCollect;
+import com.xiaogang.com.wanandroid_xg.bean.Article;
 
 /**
  * author: fangxiaogang
@@ -27,7 +27,7 @@ public class MyCollectActivity extends BaseActivity<MyCollectPresenter> implemen
     }
 
     @Override
-    public void getMyCollectSuccess(MyCollect myCollect) {
+    public void getMyCollectSuccess(Article artcle) {
 
     }
 

@@ -1,5 +1,6 @@
 package com.xiaogang.com.wanandroid_xg.ui.webcontent;
 
+import android.app.Instrumentation;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
@@ -77,12 +78,15 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
         backtitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 任意同栈内的Fragment中：
-                MainFragment fragment = findFragment(MainFragment.class);
-                Bundle newBundle = new Bundle();
-                fragment.putNewBundle(newBundle);
-                // 在栈内的HomeFragment以SingleTask模式启动（即在其之上的Fragment会出栈）
-                start(fragment, SupportFragment.SINGLETASK);
+//                // 任意同栈内的Fragment中：
+//                MainFragment fragment = findFragment(MainFragment.class);
+//                Bundle newBundle = new Bundle();
+//                fragment.putNewBundle(newBundle);
+//                // 在栈内的HomeFragment以SingleTask模式启动（即在其之上的Fragment会出栈）
+//                start(fragment, SupportFragment.SINGLETASK);
+
+                _mActivity.onBackPressed();
+
             }
         });
 
@@ -103,10 +107,10 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
     public boolean onBackPressedSupport() {
        if (mAgentWeb.back())  {
            mAgentWeb.back();
+           return true;
        }else {
            return false;
        }
-        return true;
     }
 
 }
