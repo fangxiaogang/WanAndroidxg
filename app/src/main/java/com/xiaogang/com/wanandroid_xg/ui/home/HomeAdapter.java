@@ -39,7 +39,11 @@ public class HomeAdapter extends BaseQuickAdapter<Article.DatasBean,BaseViewHold
         }else {
             textView.setVisibility(View.GONE);
         }
-        helper.setText(R.id.tvChapterName,  item.getsuperChapterName() + " / "+ item.getChapterName());
+        if (StringUtils.isEmpty(item.getsuperChapterName())) {
+            helper.setText(R.id.tvChapterName, item.getChapterName());
+        }else {
+            helper.setText(R.id.tvChapterName,  item.getsuperChapterName() + " / "+ item.getChapterName());
+        }
         helper.addOnClickListener(R.id.tvChapterName);
     }
 }

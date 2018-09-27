@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorAccent"
+    android:background="@color/white"
     >
 
     <LinearLayout
@@ -14,6 +14,12 @@
         android:orientation="horizontal"
         >
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="登录"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -22,6 +28,12 @@
         android:layout_height="@dimen/px100"
         android:orientation="horizontal"
        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="收藏"/>
 
     </LinearLayout>
 

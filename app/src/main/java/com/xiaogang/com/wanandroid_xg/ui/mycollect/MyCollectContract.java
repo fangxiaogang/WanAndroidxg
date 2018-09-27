@@ -12,13 +12,17 @@ public interface MyCollectContract {
 
     interface View extends BaseContract.Baseview {
 
-        void getMyCollectSuccess (Article article);
+        void getMyCollectSuccess (Article article,int type);
 
     }
 
     interface Presenter extends BaseContract.Basepresenter<MyCollectContract.View>{
 
         void getMyCollects ();
+
+        void refresh();
+
+        void loadMore();
 
     };
 

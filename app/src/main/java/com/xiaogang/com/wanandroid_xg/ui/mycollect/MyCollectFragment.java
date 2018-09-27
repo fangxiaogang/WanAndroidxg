@@ -70,10 +70,21 @@ public class MyCollectFragment extends BaseFragment<MyCollectPresenter> implemen
     }
 
     @Override
-    public void getMyCollectSuccess(Article article) {
-        mhomeAdapter.setNewData(article.getDatas());
-        mswipeRefreshLayout.setRefreshing(false);
-        mhomeAdapter.loadMoreComplete();
+    public void getMyCollectSuccess(Article article,int type) {
+        if (type == 0) {
+            mhomeAdapter.setNewData(article.getDatas());
+            mswipeRefreshLayout.setRefreshing(false);
+            mhomeAdapter.loadMoreComplete();
+        }else if (type == 1) {
+            mhomeAdapter.addData(article.getDatas());
+            if (article.getDatas() == null || article.getDatas().size() < 20) {
+                mhomeAdapter.loadMoreEnd(false);
+            }else {
+                mhomeAdapter.loadMoreComplete();
+            }
+        }
+
+
     }
 
     public static MyCollectFragment newInstance() {
@@ -85,18 +96,17 @@ public class MyCollectFragment extends BaseFragment<MyCollectPresenter> implemen
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-//        ((MainFragment) getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(mhomeAdapter.getItem(position).getLink(),mhomeAdapter.getItem(position).getTitle()));
         start(WebcontentFragment.newInstance(mhomeAdapter.getItem(position).getLink(),mhomeAdapter.getItem(position).getTitle()));
     }
 
     @Override
     public void onLoadMoreRequested() {
-
+        mPresenter.loadMore();
     }
 
     @Override
     public void onRefresh() {
-
+        mPresenter.refresh();
     }
 
 

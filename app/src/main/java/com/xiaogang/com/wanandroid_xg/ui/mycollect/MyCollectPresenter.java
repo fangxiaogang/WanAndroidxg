@@ -18,6 +18,10 @@ import io.reactivex.functions.Consumer;
 
 public class MyCollectPresenter extends BasePresenter<MyCollectContract.View> implements MyCollectContract.Presenter {
 
+    private int mPage = 0;
+
+    private boolean isRefresh = true;
+
     @Inject
     public MyCollectPresenter (){
 
@@ -27,13 +31,17 @@ public class MyCollectPresenter extends BasePresenter<MyCollectContract.View> im
     @Override
     public void getMyCollects() {
         RetrofitManager.create(ApiServer.class)
-                .getMyCollect(0)
+                .getMyCollect(mPage)
                 .compose(RxSchedulers.<DataResponse<Article>>applySchedulers())
                 .compose(mView.<DataResponse<Article>>bindToLife())
                 .subscribe(new Consumer<DataResponse<Article>>() {
                     @Override
                     public void accept(DataResponse<Article> myCollectDataResponse) throws Exception {
-                        mView.getMyCollectSuccess(myCollectDataResponse.getData());
+                        if (isRefresh) {
+                            mView.getMyCollectSuccess(myCollectDataResponse.getData(),0);
+                        }else {
+                            mView.getMyCollectSuccess(myCollectDataResponse.getData(),1);
+                        }
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -43,6 +51,19 @@ public class MyCollectPresenter extends BasePresenter<MyCollectContract.View> im
                 });
     }
 
+    @Override
+    public void refresh() {
+        mPage = 0;
+        isRefresh = true;
+        getMyCollects();
+    }
+
+    @Override
+    public void loadMore() {
+        mPage ++;
+        isRefresh = false;
+        getMyCollects();
+    }
 
 
 }

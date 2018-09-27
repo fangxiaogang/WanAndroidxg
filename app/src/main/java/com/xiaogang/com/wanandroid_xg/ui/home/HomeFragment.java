@@ -117,7 +117,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-//        start(WebcontentFragment.newInstance("www."));
         ((MainFragment) getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(mhomeAdapter.getItem(position).getLink(),mhomeAdapter.getItem(position).getTitle()));
     }
 

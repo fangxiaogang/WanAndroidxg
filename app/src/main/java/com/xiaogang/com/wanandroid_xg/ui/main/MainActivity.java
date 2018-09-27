@@ -14,6 +14,8 @@ import com.xiaogang.com.wanandroid_xg.ui.mine.MineFragment;
 import com.xiaogang.com.wanandroid_xg.ui.project.ProjectFragment;
 
 import butterknife.BindView;
+import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
+import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 public class MainActivity extends BaseActivity {
 
@@ -73,7 +75,17 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void onBackPressedSupport() {
+        // 对于 4个类别的主Fragment内的回退back逻辑,已经在其onBackPressedSupport里各自处理了
+        super.onBackPressedSupport();
+    }
 
+    @Override
+    public FragmentAnimator onCreateFragmentAnimator() {
+        // 设置横向(和安卓4.x动画相同)
+        return new DefaultHorizontalAnimator();
+    }
 
 
 

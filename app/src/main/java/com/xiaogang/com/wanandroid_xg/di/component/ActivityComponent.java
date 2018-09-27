@@ -3,12 +3,10 @@ package com.xiaogang.com.wanandroid_xg.di.component;
 import android.app.Activity;
 import android.content.Context;
 
-import com.xiaogang.com.wanandroid_xg.di.component.ApplicationComponent;
 import com.xiaogang.com.wanandroid_xg.di.moudule.ActivityModule;
 import com.xiaogang.com.wanandroid_xg.di.scope.ContextLife;
 import com.xiaogang.com.wanandroid_xg.di.scope.PerActivity;
-import com.xiaogang.com.wanandroid_xg.ui.login.LoginActivity;
-import com.xiaogang.com.wanandroid_xg.ui.mycollect.MyCollectActivity;
+
 
 import dagger.Component;
 
@@ -29,13 +27,5 @@ public interface ActivityComponent {
 
     Activity getActivity();
 
-//    void inject(SearchActivity activity);
-//
-    void inject(LoginActivity activity);
-//
-//    void inject(ArticleContentActivity activity);
-//
-    void inject(MyCollectActivity activity);
-//
-//    void inject(MyBookmarkActivity activity);
+
 }

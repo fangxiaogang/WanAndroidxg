@@ -21,7 +21,7 @@ import io.reactivex.functions.Consumer;
 
 public class HomePresenter extends BasePresenter<HomeContract.View> implements HomeContract.Presenter {
 
-    private int mPage;
+    private int mPage = 0;
 
     private boolean isRefresh = true;
 
