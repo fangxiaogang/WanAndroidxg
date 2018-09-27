@@ -59,7 +59,9 @@ public class MyCollectFragment extends BaseFragment<MyCollectPresenter> implemen
         mcolletrecycyleview.setAdapter(mhomeAdapter = new HomeAdapter(R.layout.item_home,marticle));
         mhomeAdapter.setOnLoadMoreListener(this);
         mhomeAdapter.setOnItemClickListener(this);
+
         mPresenter.getMyCollects();
+
 
         backtitle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +84,7 @@ public class MyCollectFragment extends BaseFragment<MyCollectPresenter> implemen
             }else {
                 mhomeAdapter.loadMoreComplete();
             }
+
         }
 
 

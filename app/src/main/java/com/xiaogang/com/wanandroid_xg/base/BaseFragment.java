@@ -18,6 +18,8 @@ import com.xiaogang.com.wanandroid_xg.SupportFragment;
 import com.xiaogang.com.wanandroid_xg.di.component.DaggerFragmentComponent;
 import com.xiaogang.com.wanandroid_xg.di.component.FragmentComponent;
 import com.xiaogang.com.wanandroid_xg.di.moudule.FragmentModule;
+import com.xiaogang.com.wanandroid_xg.utils.MultiStateView;
+import com.xiaogang.com.wanandroid_xg.utils.SimpleMultiStateView;
 
 import javax.inject.Inject;
 
@@ -40,6 +42,9 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
 
     private Unbinder unbinder;
 
+    @Nullable
+    @BindView(R.id.SimpleMultiStateView)
+    SimpleMultiStateView mSimpleMultiStateView;
 
     protected abstract int getLayoutId();
 
@@ -64,6 +69,7 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
         inflaterView(inflater, container);
         unbinder = ButterKnife.bind(this, mRootView);
         initView(mRootView);
+       // initStateView();
         return mRootView;
     }
 
@@ -94,6 +100,28 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
                 .build();
     }
 
+    private void initStateView() {
+        if (mSimpleMultiStateView == null) return;
+        mSimpleMultiStateView.setEmptyResource(R.layout.view_empty)
+                .setRetryResource(R.layout.view_retry)
+                .setLoadingResource(R.layout.view_loading)
+                .setNoNetResource(R.layout.view_nonet)
+                .build()
+                .setonReLoadlistener(new MultiStateView.onReLoadlistener() {
+                    @Override
+                    public void onReload() {
+//                        onRetry();
+                    }
+                });
+    }
+
+    protected SimpleMultiStateView getStateView() {
+        return mSimpleMultiStateView;
+    }
+
+
+
+
 
     /**
      * 贴上view
@@ -118,12 +146,16 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
 
     @Override
     public void showLoading() {
-
+        if (mSimpleMultiStateView != null) {
+            mSimpleMultiStateView.showLoadingView();
+        }
     }
 
     @Override
     public void hideLoading() {
-
+        if (mSimpleMultiStateView != null) {
+            mSimpleMultiStateView.showContent();
+        }
     }
 
     @Override

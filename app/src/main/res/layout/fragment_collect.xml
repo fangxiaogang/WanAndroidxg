@@ -24,6 +24,8 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/px100"
             android:textColor="#888888"
+            android:text="我的收藏"
+            android:textSize="14sp"
             android:gravity="center_vertical"
             android:maxLines="2"
             />
@@ -50,11 +52,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.xiaogang.com.wanandroid_xg.utils.SimpleMultiStateView
+            android:id="@+id/SimpleMultiStateView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/colletrecycyleview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+
+        </com.xiaogang.com.wanandroid_xg.utils.SimpleMultiStateView>
 
     </android.support.v4.widget.SwipeRefreshLayout>
 

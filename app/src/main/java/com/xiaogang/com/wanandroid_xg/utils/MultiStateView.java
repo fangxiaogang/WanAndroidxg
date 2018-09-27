@@ -81,12 +81,10 @@ public class MultiStateView extends FrameLayout {
         if (getCurrentView() == null) return;
         if (state != mCurrentState) {
             View view = getView(state);
-
             getCurrentView().setVisibility(GONE);
             mCurrentState = state;
             if (view != null) {
                 view.setVisibility(VISIBLE);
-
             } else {
                 int resLayoutID = mLayoutIDArray.get(state);
                 if (resLayoutID == 0) return;

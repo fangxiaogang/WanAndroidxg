@@ -10,6 +10,7 @@ import com.xiaogang.com.wanandroid_xg.bean.User;
 public interface LoginContract {
 
     interface View extends BaseContract.Baseview {
+
         void loginSuccess(User user);
 
         void loginerror(String error);

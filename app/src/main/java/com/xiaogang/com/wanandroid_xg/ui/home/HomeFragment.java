@@ -18,6 +18,7 @@ import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
 import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
 import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment2;
 import com.xiaogang.com.wanandroid_xg.utils.GlideImageLoader;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +75,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
     }
 
     @Override
-    public void setBannerdate(List<Banner> bannerers) {
+    public void setBannerdate(final List<Banner> bannerers) {
         List<String> images = new ArrayList();
         for(Banner banner : bannerers){
             images.add(banner.getImagePath());
@@ -82,6 +83,13 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
         mbanner.setImages(images)
                 .setImageLoader(new GlideImageLoader())
                 .start();
+
+        mbanner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                ((MainFragment) getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(bannerers.get(position).getUrl(),bannerers.get(position).getTitle()));
+            }
+        });
     }
 
     @Override
