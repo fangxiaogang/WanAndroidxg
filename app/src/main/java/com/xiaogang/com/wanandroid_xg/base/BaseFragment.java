@@ -2,24 +2,19 @@ package com.xiaogang.com.wanandroid_xg.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.blankj.utilcode.util.NetworkUtils;
+import com.classic.common.MultipleStatusView;
 import com.trello.rxlifecycle2.LifecycleTransformer;
-import com.trello.rxlifecycle2.components.RxFragment;
 import com.xiaogang.com.wanandroid_xg.MyApplication;
+
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.SupportFragment;
 import com.xiaogang.com.wanandroid_xg.di.component.DaggerFragmentComponent;
 import com.xiaogang.com.wanandroid_xg.di.component.FragmentComponent;
 import com.xiaogang.com.wanandroid_xg.di.moudule.FragmentModule;
-import com.xiaogang.com.wanandroid_xg.utils.MultiStateView;
-import com.xiaogang.com.wanandroid_xg.utils.SimpleMultiStateView;
 
 import javax.inject.Inject;
 
@@ -43,8 +38,8 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
     private Unbinder unbinder;
 
     @Nullable
-    @BindView(R.id.SimpleMultiStateView)
-    SimpleMultiStateView mSimpleMultiStateView;
+    @BindView(R.id.MultipleStatusView)
+    MultipleStatusView multipleStatusView;
 
     protected abstract int getLayoutId();
 
@@ -69,6 +64,7 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
         inflaterView(inflater, container);
         unbinder = ButterKnife.bind(this, mRootView);
         initView(mRootView);
+
         return mRootView;
     }
 
@@ -88,11 +84,6 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
 
 
     private void initFragmentComponent() {
-//        mFragmentComponent = DaggerFragmentComponent.builder()
-//                .applicationComponent(((MyApplication) getActivity().getApplication()).getApplicationComponent())
-//                .fragmentModule(new FragmentModule(this))
-//                .build();
-
         mFragmentComponent = DaggerFragmentComponent.builder()
                 .applicationComponent(MyApplication.getInstance().getApplicationComponent())
                 .fragmentModule(new FragmentModule(this))
@@ -130,12 +121,12 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
 
     @Override
     public void showLoading() {
-
+        multipleStatusView.showLoading();
     }
 
     @Override
     public void hideLoading() {
-
+        multipleStatusView.showContent();
     }
 
     @Override

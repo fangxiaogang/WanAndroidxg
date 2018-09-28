@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/px80">
@@ -47,15 +46,20 @@
         android:layout_height="1px"
         android:background="#dddddd"/>
 
+
+    <com.classic.common.MultipleStatusView
+        android:id="@+id/MultipleStatusView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/mswipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.xiaogang.com.wanandroid_xg.utils.SimpleMultiStateView
-            android:id="@+id/SimpleMultiStateView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/colletrecycyleview"
@@ -63,10 +67,10 @@
             android:layout_height="match_parent"/>
 
 
-        </com.xiaogang.com.wanandroid_xg.utils.SimpleMultiStateView>
+
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-
+    </com.classic.common.MultipleStatusView>
 
 </LinearLayout>

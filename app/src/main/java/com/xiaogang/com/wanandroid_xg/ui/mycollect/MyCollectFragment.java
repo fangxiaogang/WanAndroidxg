@@ -62,13 +62,13 @@ public class MyCollectFragment extends BaseFragment<MyCollectPresenter> implemen
 
         mPresenter.getMyCollects();
 
-
         backtitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 _mActivity.onBackPressed();
             }
         });
+        showLoading();
     }
 
     @Override
@@ -87,6 +87,7 @@ public class MyCollectFragment extends BaseFragment<MyCollectPresenter> implemen
 
         }
 
+        hideLoading();
 
     }
 

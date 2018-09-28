@@ -14,7 +14,10 @@ import com.xiaogang.com.wanandroid_xg.ui.login.LoginFragment;
 import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
 import com.xiaogang.com.wanandroid_xg.ui.mycollect.MyCollectFragment;
 
+import java.util.List;
+
 import butterknife.BindView;
+import okhttp3.Cookie;
 
 /**
  * author: fangxiaogang
@@ -71,6 +74,7 @@ public class MineFragment extends BaseFragment {
         test2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                List<Cookie> cookies = CookiesManager.getCookies();
                if (CookiesManager.getCookies().size() == 0) {
                    ToastUtils.showShort("cookie null");
                } else {

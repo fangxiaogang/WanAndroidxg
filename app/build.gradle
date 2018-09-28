@@ -76,4 +76,10 @@ dependencies {
 
     //agentweb
     implementation 'com.just.agentweb:agentweb:4.0.2'
+
+    //loadview
+    implementation 'com.classic.common:multiple-status-view:1.5.1'
+
+
+
 }
