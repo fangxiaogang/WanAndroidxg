@@ -24,12 +24,12 @@ public class ProjectFragment extends BaseFragment<ProjectPresenter> implements P
 
     @Override
     protected void initInjector() {
-
+      mFragmentComponent.inject(this);
     }
 
     @Override
     protected void initView(View view) {
-
+        mPresenter.getProjectDate();
     }
 
     @Override

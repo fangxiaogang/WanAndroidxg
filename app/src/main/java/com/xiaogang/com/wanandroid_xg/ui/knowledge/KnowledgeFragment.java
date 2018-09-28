@@ -44,6 +44,8 @@ public class KnowledgeFragment extends BaseFragment<KnowledgePresenter> implemen
         fragment.setArguments(args);
         return fragment;
     }
+
+
     private static final long WAIT_TIME = 2000L;
     private long TOUCH_TIME = 0;
     /**

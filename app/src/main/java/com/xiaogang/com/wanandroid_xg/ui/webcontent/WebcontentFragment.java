@@ -39,13 +39,15 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
     @BindView(R.id.mweblin)
     LinearLayout mweblin;
 
-    private String link;
+    private String link,content;
 
-    private String content;
+    private int articleId;
 
     private static final String URL = "url";
 
     private static final String CONTENT = "content";
+
+    private static final String ARTICLEID = "articleId";
 
     private AgentWeb mAgentWeb;
 
@@ -64,6 +66,7 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
         super.onCreate(savedInstanceState);
         link = getArguments().getString(URL);
         content = getArguments().getString(CONTENT);
+        articleId = getArguments().getInt(ARTICLEID);
     }
 
     @Override
@@ -78,27 +81,30 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
         backtitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                // 任意同栈内的Fragment中：
-//                MainFragment fragment = findFragment(MainFragment.class);
-//                Bundle newBundle = new Bundle();
-//                fragment.putNewBundle(newBundle);
-//                // 在栈内的HomeFragment以SingleTask模式启动（即在其之上的Fragment会出栈）
-//                start(fragment, SupportFragment.SINGLETASK);
-
                 _mActivity.onBackPressed();
 
             }
         });
+        moretitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.addCollect(articleId);
+            }
+        });
+    }
 
+    @Override
+    public void addCollectSuccess(String msg) {
+        ToastUtils.showShort(msg);
     }
 
 
-
-    public static WebcontentFragment newInstance(String url,String content) {
+    public static WebcontentFragment newInstance(String url,String content,int id) {
         WebcontentFragment fragment = new WebcontentFragment();
         Bundle args = new Bundle();
         args.putString(URL, url);
         args.putString(CONTENT, content);
+        args.putInt(ARTICLEID,id);
         fragment.setArguments(args);
         return fragment;
     }
@@ -112,5 +118,6 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
            return false;
        }
     }
+
 
 }

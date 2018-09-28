@@ -80,6 +80,4 @@ dependencies {
     //loadview
     implementation 'com.classic.common:multiple-status-view:1.5.1'
 
-
-
 }

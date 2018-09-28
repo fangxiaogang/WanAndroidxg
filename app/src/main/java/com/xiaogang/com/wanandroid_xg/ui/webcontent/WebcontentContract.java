@@ -11,11 +11,13 @@ public interface WebcontentContract  {
 
     interface View extends BaseContract.Baseview {
 
+        void addCollectSuccess(String msg);
+
     }
 
     interface Presenter extends BaseContract.Basepresenter<View> {
 
-        void addCollect();
+        void addCollect(int id);
 
     }
 

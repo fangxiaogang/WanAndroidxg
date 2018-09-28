@@ -116,17 +116,18 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
         }
     }
 
-
-
-
     @Override
     public void showLoading() {
-        multipleStatusView.showLoading();
+        if(multipleStatusView != null ){
+            multipleStatusView.showLoading();
+        }
     }
 
     @Override
     public void hideLoading() {
-        multipleStatusView.showContent();
+        if(multipleStatusView != null ){
+            multipleStatusView.showContent();
+        }
     }
 
     @Override
