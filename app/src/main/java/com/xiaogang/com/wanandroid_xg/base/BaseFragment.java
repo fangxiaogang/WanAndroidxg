@@ -69,7 +69,6 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
         inflaterView(inflater, container);
         unbinder = ButterKnife.bind(this, mRootView);
         initView(mRootView);
-       // initStateView();
         return mRootView;
     }
 
@@ -100,24 +99,9 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
                 .build();
     }
 
-    private void initStateView() {
-        if (mSimpleMultiStateView == null) return;
-        mSimpleMultiStateView.setEmptyResource(R.layout.view_empty)
-                .setRetryResource(R.layout.view_retry)
-                .setLoadingResource(R.layout.view_loading)
-                .setNoNetResource(R.layout.view_nonet)
-                .build()
-                .setonReLoadlistener(new MultiStateView.onReLoadlistener() {
-                    @Override
-                    public void onReload() {
-//                        onRetry();
-                    }
-                });
-    }
 
-    protected SimpleMultiStateView getStateView() {
-        return mSimpleMultiStateView;
-    }
+
+
 
 
 
@@ -146,16 +130,12 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
 
     @Override
     public void showLoading() {
-        if (mSimpleMultiStateView != null) {
-            mSimpleMultiStateView.showLoadingView();
-        }
+
     }
 
     @Override
     public void hideLoading() {
-        if (mSimpleMultiStateView != null) {
-            mSimpleMultiStateView.showContent();
-        }
+
     }
 
     @Override

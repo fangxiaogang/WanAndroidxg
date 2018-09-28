@@ -2,11 +2,14 @@ package com.xiaogang.com.wanandroid_xg.ui.mine;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
+import com.xiaogang.com.wanandroid_xg.net.CookiesManager;
 import com.xiaogang.com.wanandroid_xg.ui.login.LoginFragment;
 import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
 import com.xiaogang.com.wanandroid_xg.ui.mycollect.MyCollectFragment;
@@ -25,6 +28,12 @@ public class MineFragment extends BaseFragment {
 
     @BindView(R.id.out)
     LinearLayout outlin;
+
+    @BindView(R.id.test1)
+    Button test1;
+
+    @BindView(R.id.test2)
+    Button test2;
 
     @Override
     protected int getLayoutId() {
@@ -52,7 +61,23 @@ public class MineFragment extends BaseFragment {
             }
         });
 
+        test1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CookiesManager.clearAllCookies();
+            }
+        });
 
+        test2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               if (CookiesManager.getCookies().size() == 0) {
+                   ToastUtils.showShort("cookie null");
+               } else {
+                   ToastUtils.showShort("cookie not null");
+               }
+            }
+        });
     }
     public static MineFragment newInstance() {
         Bundle args = new Bundle();
