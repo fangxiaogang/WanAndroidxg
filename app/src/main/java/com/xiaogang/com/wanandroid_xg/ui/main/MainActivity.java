@@ -37,9 +37,9 @@ public class MainActivity extends BaseActivity {
         if (findFragment(MainFragment.class) == null) {
             loadRootFragment(R.id.mhoneframeLayout, MainFragment.newInstance());
         }
-//        SupportFragment homeFragment = findFragment(HomeFragment.class);
+//        SupportFragment homeFragment = findFragment(ArticleFragment.class);
 //        if (homeFragment == null) {
-//            mFragments[0] = HomeFragment.newInstance();
+//            mFragments[0] = ArticleFragment.newInstance();
 //            mFragments[1] = KnowledgeFragment.newInstance();
 //            mFragments[2] = ProjectFragment.newInstance();
 //            mFragments[3] = MineFragment.newInstance();
