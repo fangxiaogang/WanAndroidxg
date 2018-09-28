@@ -2,6 +2,7 @@ package com.xiaogang.com.wanandroid_xg.ui.project;
 
 import com.xiaogang.com.wanandroid_xg.base.BaseContract;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
+import com.xiaogang.com.wanandroid_xg.bean.Articleitem;
 import com.xiaogang.com.wanandroid_xg.bean.Project;
 
 import java.util.List;
@@ -15,13 +16,13 @@ public interface ArticleContract {
 
     interface View extends BaseContract.Baseview{
 
-        void setArticleDate(Article articles, int type);
+        void setArticleDate(Articleitem s, int type);
 
     }
 
     interface Presenter extends BaseContract.Basepresenter<View> {
 
-        void getArticle();
+        void getArticleItem(int id);
 
         void refresh();
 

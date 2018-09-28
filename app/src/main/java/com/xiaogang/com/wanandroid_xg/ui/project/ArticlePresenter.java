@@ -1,6 +1,7 @@
 package com.xiaogang.com.wanandroid_xg.ui.project;
 
 import com.xiaogang.com.wanandroid_xg.base.BasePresenter;
+import com.xiaogang.com.wanandroid_xg.bean.Articleitem;
 import com.xiaogang.com.wanandroid_xg.bean.DataResponse;
 import com.xiaogang.com.wanandroid_xg.bean.Project;
 import com.xiaogang.com.wanandroid_xg.net.ApiServer;
@@ -20,14 +21,32 @@ import io.reactivex.functions.Consumer;
 
 public class ArticlePresenter extends BasePresenter<ArticleContract.View> implements ArticleContract.Presenter {
 
+    private int mpage = 1;
+
+    private boolean isRefresh = true;
+
     @Inject
     public ArticlePresenter() {
 
     }
 
     @Override
-    public void getArticle() {
+    public void getArticleItem(int id) {
+        RetrofitManager.create(ApiServer.class)
+                .getArticleItem(mpage,id)
+                .compose(RxSchedulers.<DataResponse<Articleitem>>applySchedulers())
+                .compose(mView.<DataResponse<Articleitem>>bindToLife())
+                .subscribe(new Consumer<DataResponse<Articleitem>>() {
+                    @Override
+                    public void accept(DataResponse<Articleitem> articleitemDataResponse) throws Exception {
+                        if (isRefresh) {
+                            mView.setArticleDate(articleitemDataResponse.getData(),0);
+                        }else {
+                            mView.setArticleDate(articleitemDataResponse.getData(),1);
+                        }
 
+                    }
+                });
     }
 
     @Override

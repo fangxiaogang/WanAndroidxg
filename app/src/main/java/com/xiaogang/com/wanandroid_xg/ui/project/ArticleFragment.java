@@ -1,6 +1,7 @@
 package com.xiaogang.com.wanandroid_xg.ui.project;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
+import com.xiaogang.com.wanandroid_xg.bean.Articleitem;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
 import com.xiaogang.com.wanandroid_xg.ui.home.HomeAdapter;
 import com.xiaogang.com.wanandroid_xg.ui.home.HomeContract;
@@ -30,7 +32,7 @@ import butterknife.BindView;
  * date: 2018/9/17
  */
 
-public class ArticleFragment extends BaseFragment<HomePresenter> implements HomeContract.View,HomeAdapter.RequestLoadMoreListener,HomeAdapter.OnItemClickListener,SwipeRefreshLayout.OnRefreshListener {
+public class ArticleFragment extends BaseFragment<ArticlePresenter> implements ArticleContract.View,HomeAdapter.RequestLoadMoreListener,HomeAdapter.OnItemClickListener,SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.mswipeRefreshLayout)
     SwipeRefreshLayout mswipeRefreshLayout;
@@ -38,13 +40,15 @@ public class ArticleFragment extends BaseFragment<HomePresenter> implements Home
     @BindView(R.id.homerecycyleview)
     RecyclerView mrecyclerView;
 
-    private com.youth.banner.Banner mbanner;
+    private int articleId;
 
-    private HomeAdapter mhomeAdapter;
+    private static final String ARTICLEID = "articleId";
 
-    private View mHomeBannerHeadView;
+    private ArticleAdapter marticleAdapter;
 
-    private List<Article.DatasBean> marticle = new ArrayList<>();
+
+
+    private List<Articleitem.DatasBean> marticleitm = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -57,59 +61,44 @@ public class ArticleFragment extends BaseFragment<HomePresenter> implements Home
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        articleId = getArguments().getInt(ARTICLEID);
+    }
+
+    @Override
     protected void initView(View view) {
 
         mswipeRefreshLayout.setOnRefreshListener(this);
         mswipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.maincolor));
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mrecyclerView.setAdapter(mhomeAdapter = new HomeAdapter(R.layout.item_home,marticle));
+        mrecyclerView.setAdapter(marticleAdapter = new ArticleAdapter(R.layout.item_home,marticleitm));
 
-        mhomeAdapter.setOnItemClickListener(this);
+        marticleAdapter.setOnItemClickListener(this);
 
-        mHomeBannerHeadView = LayoutInflater.from(getContext()).inflate(R.layout.item_bannerhead, null);
-        mbanner = (com.youth.banner.Banner) mHomeBannerHeadView.findViewById(R.id.banner_home);
-        mhomeAdapter.addHeaderView(mHomeBannerHeadView);
-        mhomeAdapter.setOnLoadMoreListener(this);
-        mPresenter.getBannerdate();
-        mPresenter.gethomedate();
+
+        mPresenter.getArticleItem(articleId);
+
     }
 
-    @Override
-    public void setBannerdate(final List<Banner> bannerers) {
-        List<String> images = new ArrayList();
-        for(Banner banner : bannerers){
-            images.add(banner.getImagePath());
-        }
-        mbanner.setImages(images)
-                .setImageLoader(new GlideImageLoader())
-                .start();
-
-        mbanner.setOnBannerListener(new OnBannerListener() {
-            @Override
-            public void OnBannerClick(int position) {
-                ((MainFragment) getParentFragment().getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(bannerers.get(position).getUrl(),bannerers.get(position).getTitle(),bannerers.get(position).getId()));
-            }
-        });
-    }
 
     @Override
-    public void sethomedate(Article articles,int type) {
+    public void setArticleDate(Articleitem articleitem, int type) {
         if (type == 0) {
-            mhomeAdapter.setNewData(articles.getDatas());
+            marticleAdapter.setNewData(articleitem.getDatas());
             mswipeRefreshLayout.setRefreshing(false);
-            mhomeAdapter.loadMoreComplete();
+            marticleAdapter.loadMoreComplete();
         }else if (type == 1) {
-            mhomeAdapter.addData(articles.getDatas());
-            mhomeAdapter.loadMoreComplete();
+            marticleAdapter.addData(articleitem.getDatas());
+            marticleAdapter.loadMoreComplete();
         }
-
     }
-
 
     public static ArticleFragment newInstance(int id) {
         Bundle args = new Bundle();
         ArticleFragment fragment = new ArticleFragment();
         fragment.setArguments(args);
+        args.putInt(ARTICLEID,id);
         return fragment;
     }
 
@@ -125,8 +114,9 @@ public class ArticleFragment extends BaseFragment<HomePresenter> implements Home
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        ((MainFragment) getParentFragment().getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(mhomeAdapter.getItem(position).getLink(),mhomeAdapter.getItem(position).getTitle(),mhomeAdapter.getItem(position).getId()));
+        ((MainFragment) getParentFragment().getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(marticleAdapter.getItem(position).getLink(),marticleAdapter.getItem(position).getTitle(),marticleAdapter.getItem(position).getId()));
     }
+
 
 
 }

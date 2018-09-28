@@ -1,6 +1,7 @@
 package com.xiaogang.com.wanandroid_xg.net;
 
 import com.xiaogang.com.wanandroid_xg.bean.Article;
+import com.xiaogang.com.wanandroid_xg.bean.Articleitem;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
 import com.xiaogang.com.wanandroid_xg.bean.DataResponse;
 import com.xiaogang.com.wanandroid_xg.bean.Knowledge;
@@ -15,6 +16,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * author: fangxiaogang
@@ -59,5 +61,10 @@ public interface ApiServer {
     //添加收藏
     @POST("/lg/collect/{id}/json")
     Observable<DataResponse> addCollect(@Path("id") int id);
+
+    //项目内容
+    //http://www.wanandroid.com/project/list/1/json?cid=294
+    @GET("/project/list/{curpage}/json")
+    Observable<DataResponse<Articleitem>> getArticleItem(@Path("curpage") int curpage, @Query("cid")int id);
 
 }
