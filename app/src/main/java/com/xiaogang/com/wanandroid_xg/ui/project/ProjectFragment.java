@@ -45,9 +45,6 @@ public class ProjectFragment extends BaseFragment<ProjectPresenter> implements P
     @Override
     protected void initView(View view) {
         mPresenter.getProjectDate();
-
-
-
     }
 
     @Override
@@ -110,8 +107,6 @@ public class ProjectFragment extends BaseFragment<ProjectPresenter> implements P
                 articleFragments.add( ArticleFragment.newInstance(id));
             }
         }
-
-
 
         @Override
         public BaseFragment getItem(int position) {
