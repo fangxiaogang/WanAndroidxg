@@ -98,16 +98,6 @@
                 android:text="章节名称"
                 android:textColor="#ea6f5a"/>
 
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_toRightOf="@+id/tvChapterName"-->
-                <!--android:layout_centerVertical="true"-->
-                <!--android:layout_marginLeft="@dimen/px20"-->
-                <!--android:textSize="14sp"-->
-                <!--android:text="其他"-->
-                <!--android:textColor="#999999"/>-->
-
         </RelativeLayout>
 
 

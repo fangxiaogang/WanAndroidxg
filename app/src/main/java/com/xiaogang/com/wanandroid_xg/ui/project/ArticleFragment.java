@@ -72,7 +72,7 @@ public class ArticleFragment extends BaseFragment<ArticlePresenter> implements A
         mswipeRefreshLayout.setOnRefreshListener(this);
         mswipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.maincolor));
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mrecyclerView.setAdapter(marticleAdapter = new ArticleAdapter(R.layout.item_home,marticleitm));
+        mrecyclerView.setAdapter(marticleAdapter = new ArticleAdapter(R.layout.item_article,marticleitm));
 
         marticleAdapter.setOnItemClickListener(this);
 
