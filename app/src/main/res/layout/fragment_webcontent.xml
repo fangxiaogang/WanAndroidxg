@@ -35,7 +35,7 @@
             android:layout_width="@dimen/px30"
             android:layout_height="@dimen/px30"
             android:layout_alignParentRight="true"
-            android:background="@drawable/icon_more"
+            android:background="@drawable/icon_openinternet"
             android:layout_marginTop="@dimen/px25"
             android:layout_marginRight="@dimen/px25"
             />
@@ -50,10 +50,66 @@
     <LinearLayout
         android:id="@+id/mweblin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:id="@+id/lincollect"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/px30"
+                android:layout_height="@dimen/px30"
+                android:background="@drawable/icon_collect"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#888888"
+                android:layout_marginTop="@dimen/px10"
+                android:text="收藏"
+                android:textSize="10sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linshare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/px30"
+                android:layout_height="@dimen/px30"
+                android:background="@drawable/icon_share"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#888888"
+                android:layout_marginTop="@dimen/px10"
+                android:textSize="10sp"
+                android:text="分享"/>
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

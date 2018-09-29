@@ -1,6 +1,8 @@
 package com.xiaogang.com.wanandroid_xg.ui.webcontent;
 
 import android.app.Instrumentation;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
@@ -38,6 +40,13 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
 
     @BindView(R.id.mweblin)
     LinearLayout mweblin;
+
+    @BindView(R.id.lincollect)
+    LinearLayout mlincollect;
+
+    @BindView(R.id.linshare)
+    LinearLayout mlinshare;
+
 
     private String link,content;
 
@@ -88,7 +97,24 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
         moretitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent("android.intent.action.VIEW");
+                intent.setData(Uri.parse(link));
+                startActivity(intent);
+            }
+        });
+        mlincollect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 mPresenter.addCollect(articleId);
+            }
+        });
+        mlinshare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT, link);
+                intent.setType("text/plain");
+                startActivity(intent);
             }
         });
     }

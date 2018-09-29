@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
@@ -16,7 +15,6 @@ import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
 import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
 import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
-import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment2;
 import com.xiaogang.com.wanandroid_xg.utils.GlideImageLoader;
 import com.youth.banner.listener.OnBannerListener;
 

@@ -31,10 +31,10 @@ public class HomeAdapter extends BaseQuickAdapter<Article.DatasBean,BaseViewHold
     protected void convert(BaseViewHolder helper, Article.DatasBean item) {
         helper.setText(R.id.tvAuthor, item.getAuthor());
         helper.setText(R.id.tvNiceDate, item.getNiceDate());
-        helper.setText(R.id.tvTitle, Html.fromHtml(item.getTitle()));
+        helper.setText(R.id.tvTitle, item.getTitle());
         TextView textView = helper.getView(R.id.tvContent);
         if (!StringUtils.isEmpty(item.getDesc())){
-            helper.setText(R.id.tvContent, Html.fromHtml(item.getDesc()));
+            helper.setText(R.id.tvContent, item.getDesc());
             textView.setVisibility(View.VISIBLE);
         }else {
             textView.setVisibility(View.GONE);
