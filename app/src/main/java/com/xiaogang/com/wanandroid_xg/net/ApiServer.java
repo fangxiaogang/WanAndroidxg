@@ -67,4 +67,10 @@ public interface ApiServer {
     @GET("/project/list/{curpage}/json")
     Observable<DataResponse<Articleitem>> getArticleItem(@Path("curpage") int curpage, @Query("cid")int id);
 
+    //知识体系文章列表
+    //http://www.wanandroid.com/article/list/0/json?cid=60
+    @GET("/article/list/{page}/json")
+    Observable<DataResponse<Article>> getKnowledgelist(@Path("page") int page, @Query("cid") int cid);
+
+
 }

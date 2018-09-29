@@ -1,5 +1,6 @@
 package com.xiaogang.com.wanandroid_xg.ui.knowledge;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -34,6 +35,14 @@ public class KnowledgeArticleFragment extends BaseFragment{
     @Override
     protected void initView(View view) {
 
+    }
+
+
+    public static KnowledgeArticleFragment newInstance() {
+        Bundle args = new Bundle();
+        KnowledgeArticleFragment fragment = new KnowledgeArticleFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
 }
