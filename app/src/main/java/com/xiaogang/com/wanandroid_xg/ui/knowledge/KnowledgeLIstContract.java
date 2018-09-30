@@ -8,7 +8,7 @@ import com.xiaogang.com.wanandroid_xg.bean.Article;
  * date: 2018/9/29
  */
 
-public class KnowledgeLIstContract {
+public interface  KnowledgeLIstContract {
 
     interface View extends BaseContract.Baseview {
 

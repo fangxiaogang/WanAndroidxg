@@ -10,6 +10,7 @@
         android:layout_height="@dimen/px80">
 
         <TextView
+            android:id="@+id/knowledgeName"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="#2f2f2f"

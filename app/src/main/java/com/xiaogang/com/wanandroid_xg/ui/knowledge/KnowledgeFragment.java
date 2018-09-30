@@ -12,6 +12,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
 import com.xiaogang.com.wanandroid_xg.bean.Knowledge;
+import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,12 @@ public class KnowledgeFragment extends BaseFragment<KnowledgePresenter> implemen
     private knowledgeAdapter mknowledgeAdapter;
 
     private List<Knowledge> knowledges = new ArrayList<>();
+
+    private List<Knowledge> knowledgemsg = new ArrayList<>();
+
+    private List<String> knowledgenames = new ArrayList<>();
+
+    private List<String> knowledgeids = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -65,6 +72,8 @@ public class KnowledgeFragment extends BaseFragment<KnowledgePresenter> implemen
         mknowledgeAdapter.setNewData(knowledges);
         mswipeRefreshLayout.setRefreshing(false);
         mknowledgeAdapter.loadMoreComplete();
+
+        knowledgemsg = knowledges;
     }
 
     public static KnowledgeFragment newInstance() {
@@ -102,6 +111,15 @@ public class KnowledgeFragment extends BaseFragment<KnowledgePresenter> implemen
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+        List<String> names = new ArrayList<>();
+        List<Integer> ids = new ArrayList<>();
+        Knowledge knowledge =  knowledgemsg.get(position);
+        String knowledgename = knowledge.getName();
+        for (Knowledge.Children children : knowledge.getChildren()){
+            names.add(children.getName());
+            ids.add(children.getId());
+        }
 
+        ((MainFragment) getParentFragment()).startBrotherFragment(KnowledgeArticleFragment.newInstance(names,ids,knowledgename));
     }
 }

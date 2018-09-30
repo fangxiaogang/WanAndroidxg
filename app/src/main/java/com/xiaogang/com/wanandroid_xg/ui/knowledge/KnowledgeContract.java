@@ -1,7 +1,7 @@
 package com.xiaogang.com.wanandroid_xg.ui.knowledge;
 
 import com.xiaogang.com.wanandroid_xg.base.BaseContract;
-import com.xiaogang.com.wanandroid_xg.bean.Banner;
+import com.xiaogang.com.wanandroid_xg.base.BasePresenter;
 import com.xiaogang.com.wanandroid_xg.bean.Knowledge;
 
 import java.util.List;
