@@ -1,6 +1,7 @@
 package com.xiaogang.com.wanandroid_xg.ui.login;
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,13 +25,16 @@ import butterknife.BindView;
 public class LoginFragment extends BaseFragment<LoginPresenter> implements LoginContract.View {
 
     @BindView(R.id.usernameet)
-    EditText usernameet;
+    TextInputEditText usernameet;
 
     @BindView(R.id.userpasswordet)
-    EditText userpasswordet;
+    TextInputEditText userpasswordet;
 
     @BindView(R.id.loginbtn)
     Button loginbtn;
+
+    @BindView(R.id.registerbtn)
+    Button registerbtn;
 
     @Override
     protected int getLayoutId() {
@@ -51,10 +55,23 @@ public class LoginFragment extends BaseFragment<LoginPresenter> implements Login
                 String username = usernameet.getText().toString();
                 String password = userpasswordet.getText().toString();
                 if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
-                    ToastUtils.showShort("用户名或密码不能为空");
+                    ToastUtils.showShort("账号或密码不能为空");
                     return;
                 }
                 mPresenter.login(username, password);
+            }
+        });
+
+        registerbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = usernameet.getText().toString();
+                String password = userpasswordet.getText().toString();
+                if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
+                    ToastUtils.showShort("账号或密码不能为空");
+                    return;
+                }
+                mPresenter.register(username,password,password);
             }
         });
     }
@@ -71,6 +88,12 @@ public class LoginFragment extends BaseFragment<LoginPresenter> implements Login
     @Override
     public void loginerror(String error) {
         ToastUtils.showShort("登录失败");
+    }
+
+    @Override
+    public void registerSuccess(User user) {
+        ToastUtils.showShort("注册成功"+ user.getUsername());
+        mPresenter.login(user.getUsername(), user.getPassword());
     }
 
     public static LoginFragment newInstance() {

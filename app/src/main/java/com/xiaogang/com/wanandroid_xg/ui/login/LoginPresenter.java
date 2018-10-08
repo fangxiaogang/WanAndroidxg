@@ -44,4 +44,27 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                     }
                 });
     }
+
+    @Override
+    public void register(String username, String password, String repassword) {
+        RetrofitManager.create(ApiServer.class)
+                .register(username, password, repassword)
+                .compose(RxSchedulers.<DataResponse<User>>applySchedulers())
+                .compose(mView.<DataResponse<User>>bindToLife())
+                .subscribe(new Consumer<DataResponse<User>>() {
+                    @Override
+                    public void accept(DataResponse<User> userDataResponse) throws Exception {
+                        if (userDataResponse.getErrorCode() == 0){
+                            mView.registerSuccess(userDataResponse.getData());
+                        }else {
+                            mView.showFaild(String.valueOf(userDataResponse.getErrorMsg()));
+                        }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                    }
+                });
+    }
 }
