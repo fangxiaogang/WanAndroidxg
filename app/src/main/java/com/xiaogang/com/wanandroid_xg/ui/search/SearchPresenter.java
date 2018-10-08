@@ -18,9 +18,11 @@ import io.reactivex.functions.Consumer;
 
 public class SearchPresenter extends BasePresenter<SearchContract.View> implements SearchContract.Presenter{
 
-    private int mpage = 1;
+    private int mPage = 0;
 
     private boolean isRefresh = true;
+
+    private String mk;
 
     @Inject
     public SearchPresenter() {
@@ -30,8 +32,9 @@ public class SearchPresenter extends BasePresenter<SearchContract.View> implemen
 
     @Override
     public void getSearchdate(String k) {
+        this.mk = k;
         RetrofitManager.create(ApiServer.class)
-                .getSearchArticles(mpage,k)
+                .getSearchArticles(mPage,k)
                 .compose(RxSchedulers.<DataResponse<Article>>applySchedulers())
                 .compose(mView.<DataResponse<Article>>bindToLife())
                 .subscribe(new Consumer<DataResponse<Article>>() {
@@ -49,5 +52,19 @@ public class SearchPresenter extends BasePresenter<SearchContract.View> implemen
 
                     }
                 });
+    }
+
+    @Override
+    public void refresh() {
+        mPage = 0;
+        isRefresh = true;
+        getSearchdate(mk);
+    }
+
+    @Override
+    public void loadMore() {
+        mPage ++;
+        isRefresh = false;
+        getSearchdate(mk);
     }
 }

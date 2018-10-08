@@ -20,6 +20,10 @@ public interface SearchContract {
 
         void getSearchdate(String k);
 
+        void refresh();
+
+        void loadMore();
+
     }
 
 }

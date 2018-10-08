@@ -51,6 +51,6 @@ public interface FragmentComponent {
 
     void inject(KnowledgeLIstFragment fragment);
 
-   // void inject(SearchFragment fragment);
+    void inject(SearchFragment fragment);
 
 }

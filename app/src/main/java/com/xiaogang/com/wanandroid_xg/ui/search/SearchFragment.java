@@ -1,5 +1,6 @@
 package com.xiaogang.com.wanandroid_xg.ui.search;
 
+import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.ui.home.HomeAdapter;
+import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ import butterknife.BindView;
  * date: 2018/10/8
  */
 
-public class SearchFragment extends BaseFragment<SearchContract.Presenter> implements SearchContract.View,HomeAdapter.RequestLoadMoreListener,HomeAdapter.OnItemClickListener,SwipeRefreshLayout.OnRefreshListener {
+public class SearchFragment extends BaseFragment<SearchPresenter> implements SearchContract.View,HomeAdapter.RequestLoadMoreListener,HomeAdapter.OnItemClickListener,SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.mswipeRefreshLayout)
     SwipeRefreshLayout mswipeRefreshLayout;
@@ -41,7 +43,7 @@ public class SearchFragment extends BaseFragment<SearchContract.Presenter> imple
 
     @Override
     protected void initInjector() {
-        //mFragmentComponent.inject(this);
+        mFragmentComponent.inject(this);
     }
 
     @Override
@@ -64,22 +66,33 @@ public class SearchFragment extends BaseFragment<SearchContract.Presenter> imple
             mhomeAdapter.loadMoreComplete();
         }else if (type == 1) {
             mhomeAdapter.addData(articles.getDatas());
-            mhomeAdapter.loadMoreComplete();
+            if (articles.getDatas() == null || articles.getDatas().size() < 20) {
+                mhomeAdapter.loadMoreEnd(false);
+            }else {
+                mhomeAdapter.loadMoreComplete();
+            }
         }
     }
 
     @Override
     public void onRefresh() {
-
+        mPresenter.refresh();
     }
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
+        start(WebcontentFragment.newInstance(mhomeAdapter.getItem(position).getLink(),mhomeAdapter.getItem(position).getTitle(),mhomeAdapter.getItem(position).getId()));
     }
 
     @Override
     public void onLoadMoreRequested() {
+        mPresenter.loadMore();
+    }
 
+    public static SearchFragment newInstance() {
+        Bundle args = new Bundle();
+        SearchFragment fragment = new SearchFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -14,6 +15,7 @@ import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
 import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
+import com.xiaogang.com.wanandroid_xg.ui.search.SearchFragment;
 import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
 import com.xiaogang.com.wanandroid_xg.utils.GlideImageLoader;
 import com.youth.banner.listener.OnBannerListener;
@@ -35,6 +37,9 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     @BindView(R.id.homerecycyleview)
     RecyclerView mrecyclerView;
+
+    @BindView(R.id.homesearch)
+    ImageView mhomesearch;
 
     private com.youth.banner.Banner mbanner;
 
@@ -70,6 +75,14 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
         mhomeAdapter.setOnLoadMoreListener(this);
         mPresenter.getBannerdate();
         mPresenter.gethomedate();
+
+
+        mhomesearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getParentFragment()).startBrotherFragment(SearchFragment.newInstance());
+            }
+        });
     }
 
     @Override
