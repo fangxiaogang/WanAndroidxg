@@ -73,4 +73,12 @@ public interface ApiServer {
     Observable<DataResponse<Article>> getKnowledgelist(@Path("page") int page, @Query("cid") int cid);
 
 
+    //搜索
+    //http://www.wanandroid.com/article/query/0/json
+    @POST("/article/query/{page}/json")
+    @FormUrlEncoded
+    Observable<DataResponse<Article>> getSearchArticles(@Path("page") int page, @Field("k") String k);
+
+
+
 }

@@ -13,6 +13,7 @@ import com.xiaogang.com.wanandroid_xg.ui.login.LoginFragment;
 import com.xiaogang.com.wanandroid_xg.ui.mycollect.MyCollectFragment;
 import com.xiaogang.com.wanandroid_xg.ui.project.ArticleFragment;
 import com.xiaogang.com.wanandroid_xg.ui.project.ProjectFragment;
+import com.xiaogang.com.wanandroid_xg.ui.search.SearchFragment;
 import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
 
 
@@ -49,5 +50,7 @@ public interface FragmentComponent {
     void inject(ArticleFragment fragment);
 
     void inject(KnowledgeLIstFragment fragment);
+
+   // void inject(SearchFragment fragment);
 
 }

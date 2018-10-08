@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.classic.common.MultipleStatusView;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.xiaogang.com.wanandroid_xg.MyApplication;
@@ -137,7 +138,7 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
 
     @Override
     public void showFaild(String message) {
-
+        ToastUtils.showShort(message);
     }
 
     @Override
