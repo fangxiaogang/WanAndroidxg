@@ -5,7 +5,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 
+import com.blankj.utilcode.util.StringUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
@@ -31,6 +35,13 @@ public class SearchFragment extends BaseFragment<SearchPresenter> implements Sea
     @BindView(R.id.searchrecycyleview)
     RecyclerView msearchrecycyleview;
 
+    @BindView(R.id.searchet)
+    EditText msearchet;
+
+    @BindView(R.id.searchiv)
+    ImageView msearchiv;
+
+
     private HomeAdapter mhomeAdapter;
 
     private List<Article.DatasBean> marticle = new ArrayList<>();
@@ -55,7 +66,18 @@ public class SearchFragment extends BaseFragment<SearchPresenter> implements Sea
         msearchrecycyleview.setAdapter(mhomeAdapter = new HomeAdapter(R.layout.item_home,marticle));
         mhomeAdapter.setOnLoadMoreListener(this);
 
-        mPresenter.getSearchdate("面试");
+        msearchiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String content = msearchet.getText().toString();
+                if (StringUtils.isEmpty(content) || StringUtils.isEmpty(content)) {
+                    return;
+                }
+                mPresenter.getSearchdate(content);
+            }
+        });
+
+
     }
 
     @Override

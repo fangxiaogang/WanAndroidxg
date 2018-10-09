@@ -48,7 +48,6 @@ public class LoginFragment extends BaseFragment<LoginPresenter> implements Login
 
     @Override
     protected void initView(View view) {
-
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
