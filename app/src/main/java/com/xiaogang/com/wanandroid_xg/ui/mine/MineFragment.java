@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
@@ -13,6 +14,7 @@ import com.xiaogang.com.wanandroid_xg.net.CookiesManager;
 import com.xiaogang.com.wanandroid_xg.ui.login.LoginFragment;
 import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
 import com.xiaogang.com.wanandroid_xg.ui.mycollect.MyCollectFragment;
+import com.xiaogang.com.wanandroid_xg.utils.Constant;
 
 import java.util.List;
 
@@ -60,7 +62,11 @@ public class MineFragment extends BaseFragment {
         outlin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainFragment) getParentFragment()).startBrotherFragment(MyCollectFragment.newInstance());
+                if (SPUtils.getInstance(Constant.SPname).getBoolean(Constant.LOGIN)){
+                    ((MainFragment) getParentFragment()).startBrotherFragment(MyCollectFragment.newInstance());
+                }else {
+                    ((MainFragment) getParentFragment()).startBrotherFragment(LoginFragment.newInstance());
+                }
             }
         });
 

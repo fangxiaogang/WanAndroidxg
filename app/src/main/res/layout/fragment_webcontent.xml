@@ -71,6 +71,7 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/collectiv"
                 android:layout_width="@dimen/px30"
                 android:layout_height="@dimen/px30"
                 android:background="@drawable/icon_collect"
@@ -96,6 +97,7 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/shareiv"
                 android:layout_width="@dimen/px30"
                 android:layout_height="@dimen/px30"
                 android:background="@drawable/icon_share"

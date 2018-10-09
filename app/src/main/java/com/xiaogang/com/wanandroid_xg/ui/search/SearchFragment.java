@@ -41,6 +41,8 @@ public class SearchFragment extends BaseFragment<SearchPresenter> implements Sea
     @BindView(R.id.searchiv)
     ImageView msearchiv;
 
+    @BindView(R.id.backtitle)
+    ImageView mbacktitle;
 
     private HomeAdapter mhomeAdapter;
 
@@ -65,6 +67,13 @@ public class SearchFragment extends BaseFragment<SearchPresenter> implements Sea
         msearchrecycyleview.setLayoutManager(new LinearLayoutManager(getContext()));
         msearchrecycyleview.setAdapter(mhomeAdapter = new HomeAdapter(R.layout.item_home,marticle));
         mhomeAdapter.setOnLoadMoreListener(this);
+
+        mbacktitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                _mActivity.onBackPressed();
+            }
+        });
 
         msearchiv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +112,7 @@ public class SearchFragment extends BaseFragment<SearchPresenter> implements Sea
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        start(WebcontentFragment.newInstance(mhomeAdapter.getItem(position).getLink(),mhomeAdapter.getItem(position).getTitle(),mhomeAdapter.getItem(position).getId()));
+        start(WebcontentFragment.newInstance(mhomeAdapter.getItem(position).getLink(),mhomeAdapter.getItem(position).getTitle(),mhomeAdapter.getItem(position).getId(),mhomeAdapter.getItem(position).isCollect()));
     }
 
     @Override

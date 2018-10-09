@@ -79,6 +79,8 @@ public interface ApiServer {
     @FormUrlEncoded
     Observable<DataResponse<Article>> getSearchArticles(@Path("page") int page, @Field("k") String k);
 
-
-
+    //取消收藏
+    @POST("/lg/uncollect/{id}/json")
+    @FormUrlEncoded
+    Observable<DataResponse> removeCollect(@Path("id") int id, @Field("originId") int originId);
 }

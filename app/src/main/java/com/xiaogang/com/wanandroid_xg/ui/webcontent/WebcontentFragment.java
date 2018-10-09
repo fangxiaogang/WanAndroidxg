@@ -34,6 +34,9 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
     @BindView(R.id.moretitle)
     ImageView moretitle;
 
+    @BindView(R.id.collectiv)
+    ImageView mcollectiv;
+
     @BindView(R.id.titlecontent)
     TextView titlecontent;
 
@@ -48,6 +51,7 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
     LinearLayout mlinshare;
 
 
+
     private String link,content;
 
     private int articleId;
@@ -57,6 +61,10 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
     private static final String CONTENT = "content";
 
     private static final String ARTICLEID = "articleId";
+
+    private static final String ISCOLLECT = "isCollect";
+
+    private boolean isCollect;
 
     private AgentWeb mAgentWeb;
 
@@ -76,6 +84,7 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
         link = getArguments().getString(URL);
         content = getArguments().getString(CONTENT);
         articleId = getArguments().getInt(ARTICLEID);
+        isCollect= getArguments().getBoolean(ISCOLLECT);
     }
 
     @Override
@@ -105,7 +114,11 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
         mlincollect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.addCollect(articleId);
+                if (isCollect){
+                    mPresenter.removeCollect(articleId);
+                }else {
+                    mPresenter.addCollect(articleId);
+                }
             }
         });
         mlinshare.setOnClickListener(new View.OnClickListener() {
@@ -117,20 +130,33 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
                 startActivity(intent);
             }
         });
+        if (isCollect) {
+            mcollectiv.setImageResource(R.drawable.icon_collect);
+        }else {
+            mcollectiv.setImageResource(R.drawable.icon_collect);
+        }
     }
 
     @Override
     public void addCollectSuccess(String msg) {
         ToastUtils.showShort(msg);
+        mcollectiv.setImageResource(R.drawable.icon_collect);
+    }
+
+    @Override
+    public void removeCollectSuccess(String msg) {
+        ToastUtils.showShort(msg);
+        mcollectiv.setImageResource(R.drawable.icon_collect);
     }
 
 
-    public static WebcontentFragment newInstance(String url,String content,int id) {
+    public static WebcontentFragment newInstance(String url,String content,int id,boolean isCollect) {
         WebcontentFragment fragment = new WebcontentFragment();
         Bundle args = new Bundle();
         args.putString(URL, url);
         args.putString(CONTENT, content);
         args.putInt(ARTICLEID,id);
+        args.putBoolean(ISCOLLECT,isCollect);
         fragment.setArguments(args);
         return fragment;
     }

@@ -13,11 +13,15 @@ public interface WebcontentContract  {
 
         void addCollectSuccess(String msg);
 
+        void removeCollectSuccess(String msg);
+
     }
 
     interface Presenter extends BaseContract.Basepresenter<View> {
 
         void addCollect(int id);
+
+        void removeCollect(int id);
 
     }
 

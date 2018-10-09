@@ -114,7 +114,7 @@ public class ArticleFragment extends BaseFragment<ArticlePresenter> implements A
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        ((MainFragment) getParentFragment().getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(marticleAdapter.getItem(position).getLink(),marticleAdapter.getItem(position).getTitle(),marticleAdapter.getItem(position).getId()));
+        ((MainFragment) getParentFragment().getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(marticleAdapter.getItem(position).getLink(),marticleAdapter.getItem(position).getTitle(),marticleAdapter.getItem(position).getId(),false));
     }
 
 

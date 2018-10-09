@@ -98,7 +98,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
         mbanner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-                ((MainFragment) getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(bannerers.get(position).getUrl(),bannerers.get(position).getTitle(),bannerers.get(position).getId()));
+                ((MainFragment) getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(bannerers.get(position).getUrl(),bannerers.get(position).getTitle(),bannerers.get(position).getId(),false));
             }
         });
     }
@@ -136,7 +136,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        ((MainFragment) getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(mhomeAdapter.getItem(position).getLink(),mhomeAdapter.getItem(position).getTitle(),mhomeAdapter.getItem(position).getId()));
+        ((MainFragment) getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(mhomeAdapter.getItem(position).getLink(),mhomeAdapter.getItem(position).getTitle(),mhomeAdapter.getItem(position).getId(),mhomeAdapter.getItem(position).isCollect()));
     }
 
 

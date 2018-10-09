@@ -1,11 +1,14 @@
 package com.xiaogang.com.wanandroid_xg.ui.home;
 
+import com.blankj.utilcode.util.SPUtils;
 import com.xiaogang.com.wanandroid_xg.base.BasePresenter;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
 import com.xiaogang.com.wanandroid_xg.bean.DataResponse;
+import com.xiaogang.com.wanandroid_xg.bean.User;
 import com.xiaogang.com.wanandroid_xg.net.ApiServer;
 import com.xiaogang.com.wanandroid_xg.net.RetrofitManager;
+import com.xiaogang.com.wanandroid_xg.utils.Constant;
 import com.xiaogang.com.wanandroid_xg.utils.RxSchedulers;
 
 import java.util.List;
@@ -71,6 +74,29 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
 
                     }
                 });
+
+        if (SPUtils.getInstance(Constant.SPname).getBoolean(Constant.LOGIN)){
+            String username = SPUtils.getInstance(Constant.SPname).getString(Constant.USERNAME);
+            String password = SPUtils.getInstance(Constant.SPname).getString(Constant.PASSWORD);
+            RetrofitManager.create(ApiServer.class)
+                    .login(username, password)
+                    .compose(RxSchedulers.<DataResponse<User>>applySchedulers())
+                    .compose(mView.<DataResponse<User>>bindToLife())
+                    .subscribe(new Consumer<DataResponse<User>>() {
+                        @Override
+                        public void accept(DataResponse<User> userDataResponse) throws Exception {
+                            if (userDataResponse.getErrorCode() == 0){
+                                mView.showFaild("登录成功");
+                            }
+                        }
+                    }, new Consumer<Throwable>() {
+                        @Override
+                        public void accept(Throwable throwable) throws Exception {
+
+                        }
+                    });
+        }
+
     }
 
 

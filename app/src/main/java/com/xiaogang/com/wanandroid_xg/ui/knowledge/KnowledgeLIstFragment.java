@@ -88,7 +88,7 @@ public class KnowledgeLIstFragment extends BaseFragment<KnowledgeLIstPresenter> 
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-        ((KnowledgeArticleFragment)getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(mknowledgeLIstAdapter.getItem(position).getLink(),mknowledgeLIstAdapter.getItem(position).getTitle(),mknowledgeLIstAdapter.getItem(position).getId()));
+        ((KnowledgeArticleFragment)getParentFragment()).startBrotherFragment(WebcontentFragment.newInstance(mknowledgeLIstAdapter.getItem(position).getLink(),mknowledgeLIstAdapter.getItem(position).getTitle(),mknowledgeLIstAdapter.getItem(position).getId(),mknowledgeLIstAdapter.getItem(position).isCollect()));
     }
 
     @Override
