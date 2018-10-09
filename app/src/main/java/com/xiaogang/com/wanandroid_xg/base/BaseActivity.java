@@ -52,7 +52,6 @@ public abstract class BaseActivity <T extends BaseContract.Basepresenter> extend
         initActivityComponent();
         int layoutId = getLayoutId();
         setContentView(layoutId);
-//        StatusBarUtil.setTranslucentForImageViewInFragment(this, null);
         StatusBarUtil.setColor(this,getResources().getColor(R.color.white));
         initInjector();
         attachView();

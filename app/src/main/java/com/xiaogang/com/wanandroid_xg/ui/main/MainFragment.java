@@ -28,16 +28,6 @@ public class MainFragment  extends BaseFragment {
     private com.xiaogang.com.wanandroid_xg.SupportFragment[] mFragments = new com.xiaogang.com.wanandroid_xg.SupportFragment[4];
 
 
-
-    public static MainFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        MainFragment fragment = new MainFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_main;
@@ -89,6 +79,15 @@ public class MainFragment  extends BaseFragment {
      */
     public void startBrotherFragment(com.xiaogang.com.wanandroid_xg.SupportFragment targetFragment) {
         start(targetFragment);
+    }
+
+    public static MainFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        MainFragment fragment = new MainFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
 }

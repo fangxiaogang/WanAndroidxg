@@ -5,6 +5,7 @@ import android.view.KeyEvent;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chaychan.library.BottomBarItem;
 import com.chaychan.library.BottomBarLayout;
+import com.xiaogang.com.wanandroid_xg.FirstFragment;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.SupportFragment;
 import com.xiaogang.com.wanandroid_xg.base.BaseActivity;
@@ -34,8 +35,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-        if (findFragment(MainFragment.class) == null) {
-            loadRootFragment(R.id.mhoneframeLayout, MainFragment.newInstance());
+        if (findFragment(FirstFragment.class) == null) {
+            loadRootFragment(R.id.mhoneframeLayout, FirstFragment.newInstance());
         }
 //        SupportFragment homeFragment = findFragment(ArticleFragment.class);
 //        if (homeFragment == null) {
@@ -81,11 +82,11 @@ public class MainActivity extends BaseActivity {
         super.onBackPressedSupport();
     }
 
-    @Override
-    public FragmentAnimator onCreateFragmentAnimator() {
-        // 设置横向(和安卓4.x动画相同)
-        return new DefaultHorizontalAnimator();
-    }
+//    @Override
+//    public FragmentAnimator onCreateFragmentAnimator() {
+//        // 设置横向(和安卓4.x动画相同)
+//        return new DefaultHorizontalAnimator();
+//    }
 
 
 

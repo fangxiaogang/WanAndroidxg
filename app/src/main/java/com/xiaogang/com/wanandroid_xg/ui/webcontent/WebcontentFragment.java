@@ -131,7 +131,7 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
             }
         });
         if (isCollect) {
-            mcollectiv.setImageResource(R.drawable.icon_collect);
+            mcollectiv.setImageResource(R.drawable.icon_collectsuccess);
         }else {
             mcollectiv.setImageResource(R.drawable.icon_collect);
         }
@@ -140,12 +140,14 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
     @Override
     public void addCollectSuccess(String msg) {
         ToastUtils.showShort(msg);
-        mcollectiv.setImageResource(R.drawable.icon_collect);
+        isCollect = true;
+        mcollectiv.setImageResource(R.drawable.icon_collectsuccess);
     }
 
     @Override
     public void removeCollectSuccess(String msg) {
         ToastUtils.showShort(msg);
+        isCollect = false;
         mcollectiv.setImageResource(R.drawable.icon_collect);
     }
 
