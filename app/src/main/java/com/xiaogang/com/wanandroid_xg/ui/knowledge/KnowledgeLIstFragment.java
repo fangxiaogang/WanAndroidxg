@@ -76,6 +76,7 @@ public class KnowledgeLIstFragment extends BaseFragment<KnowledgeLIstPresenter> 
     @Override
     public void setKnowledgeLIst(Article article) {
         mknowledgeLIstAdapter.setNewData(article.getDatas());
+        hideLoading();
     }
 
 

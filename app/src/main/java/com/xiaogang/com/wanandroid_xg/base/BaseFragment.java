@@ -65,7 +65,7 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
         inflaterView(inflater, container);
         unbinder = ButterKnife.bind(this, mRootView);
         initView(mRootView);
-
+        showLoading();
         return mRootView;
     }
 

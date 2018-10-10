@@ -72,7 +72,7 @@ public class KnowledgeFragment extends BaseFragment<KnowledgePresenter> implemen
         mknowledgeAdapter.setNewData(knowledges);
         mswipeRefreshLayout.setRefreshing(false);
         mknowledgeAdapter.loadMoreComplete();
-
+        hideLoading();
         knowledgemsg = knowledges;
     }
 

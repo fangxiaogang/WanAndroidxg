@@ -109,6 +109,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
             mhomeAdapter.setNewData(articles.getDatas());
             mswipeRefreshLayout.setRefreshing(false);
             mhomeAdapter.loadMoreComplete();
+            hideLoading();
         }else if (type == 1) {
             mhomeAdapter.addData(articles.getDatas());
             mhomeAdapter.loadMoreComplete();

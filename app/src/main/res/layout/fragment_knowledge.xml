@@ -39,10 +39,20 @@
         android:background="#dddddd"/>
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/mrecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+
+
+        <com.classic.common.MultipleStatusView
+            android:id="@+id/MultipleStatusView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mrecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+        </com.classic.common.MultipleStatusView>
+
     </LinearLayout>
 </android.support.v4.widget.SwipeRefreshLayout>

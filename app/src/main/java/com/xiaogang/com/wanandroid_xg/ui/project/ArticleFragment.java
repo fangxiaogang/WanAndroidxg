@@ -88,6 +88,7 @@ public class ArticleFragment extends BaseFragment<ArticlePresenter> implements A
             marticleAdapter.setNewData(articleitem.getDatas());
             mswipeRefreshLayout.setRefreshing(false);
             marticleAdapter.loadMoreComplete();
+            hideLoading();
         }else if (type == 1) {
             marticleAdapter.addData(articleitem.getDatas());
             marticleAdapter.loadMoreComplete();

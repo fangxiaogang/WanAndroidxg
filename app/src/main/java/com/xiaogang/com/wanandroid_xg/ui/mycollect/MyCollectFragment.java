@@ -68,7 +68,7 @@ public class MyCollectFragment extends BaseFragment<MyCollectPresenter> implemen
                 _mActivity.onBackPressed();
             }
         });
-        showLoading();
+
     }
 
     @Override
@@ -77,6 +77,7 @@ public class MyCollectFragment extends BaseFragment<MyCollectPresenter> implemen
             mhomeAdapter.setNewData(article.getDatas());
             mswipeRefreshLayout.setRefreshing(false);
             mhomeAdapter.loadMoreComplete();
+            hideLoading();
         }else if (type == 1) {
             mhomeAdapter.addData(article.getDatas());
             if (article.getDatas() == null || article.getDatas().size() < 20) {
@@ -86,9 +87,6 @@ public class MyCollectFragment extends BaseFragment<MyCollectPresenter> implemen
             }
 
         }
-
-        hideLoading();
-
     }
 
     public static MyCollectFragment newInstance() {

@@ -6,19 +6,22 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
+
+
+
+
+    <com.classic.common.MultipleStatusView
+        android:id="@+id/MultipleStatusView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/mrecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-
-    </LinearLayout>
+    </com.classic.common.MultipleStatusView>
 
 
 </android.support.v4.widget.SwipeRefreshLayout>
