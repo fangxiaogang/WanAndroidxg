@@ -19,6 +19,7 @@
             android:textSize="18sp"/>
 
         <ImageView
+            android:id="@+id/homesearch"
             android:layout_width="@dimen/px44"
             android:layout_height="@dimen/px44"
             android:layout_alignParentRight="true"

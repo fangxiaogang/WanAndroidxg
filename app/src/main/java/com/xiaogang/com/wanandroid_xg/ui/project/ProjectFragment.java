@@ -6,12 +6,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
 import com.xiaogang.com.wanandroid_xg.bean.Project;
 import com.xiaogang.com.wanandroid_xg.ui.home.HomeFragment;
+import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
+import com.xiaogang.com.wanandroid_xg.ui.search.SearchFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +30,12 @@ public class ProjectFragment extends BaseFragment<ProjectPresenter> implements P
 
     @BindView(R.id.mTabLayout)
     TabLayout mTabLayout;
+
     @BindView(R.id.mViewpager)
     ViewPager mViewpager;
+
+    @BindView(R.id.homesearch)
+    ImageView mhomesearch;
 
     private ProjectAdapter mprojectAdapter;
 
@@ -45,6 +52,12 @@ public class ProjectFragment extends BaseFragment<ProjectPresenter> implements P
     @Override
     protected void initView(View view) {
         mPresenter.getProjectDate();
+        mhomesearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainFragment) getParentFragment()).startBrotherFragment(SearchFragment.newInstance());
+            }
+        });
     }
 
     @Override
