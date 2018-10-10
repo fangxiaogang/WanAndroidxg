@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/mswipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,33 +26,47 @@
 
             <LinearLayout
                 android:id="@+id/searchlin"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/px100"
-                android:orientation="horizontal">
+                android:layout_marginRight="@dimen/px20"
+                android:layout_marginTop="@dimen/px10"
+                android:layout_marginBottom="@dimen/px10"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_searchlin">
 
                 <EditText
                     android:id="@+id/searchet"
-                    android:layout_width="@dimen/px300"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:textSize="14sp"
+                    android:textColor="#999999"
+                    android:hint="搜索文章"
+                    android:layout_marginLeft="@dimen/px15"
+                    android:background="@null"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true"
                     />
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="@dimen/px40"
+                    android:layout_marginTop="@dimen/px10"
+                    android:background="#d5d5d5"/>
+
+                <ImageView
+                    android:id="@+id/searchiv"
+                    android:layout_width="@dimen/px40"
+                    android:layout_height="@dimen/px40"
+                    android:background="@drawable/icon_search"
+                    android:layout_marginTop="@dimen/px10"
+                    android:layout_marginRight="@dimen/px10"
+                    android:layout_marginLeft="@dimen/px5"
+                    />
+
+
             </LinearLayout>
-
-
-
-
-
-            <ImageView
-                android:id="@+id/searchiv"
-                android:layout_width="@dimen/px44"
-                android:layout_height="@dimen/px44"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/icon_search"
-                android:layout_marginTop="@dimen/px18"
-                android:layout_marginRight="@dimen/px18"
-                />
         </RelativeLayout>
 
 
@@ -64,7 +78,8 @@
         <com.classic.common.MultipleStatusView
             android:id="@+id/MultipleStatusView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:loadingView="@layout/custom_loading_view">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/searchrecycyleview"

@@ -50,7 +50,8 @@
     <com.classic.common.MultipleStatusView
         android:id="@+id/MultipleStatusView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:loadingView="@layout/custom_loading_view">
 
 
 

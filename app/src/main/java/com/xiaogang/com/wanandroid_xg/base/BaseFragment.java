@@ -64,8 +64,8 @@ public abstract class BaseFragment < T extends BaseContract.Basepresenter> exten
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         inflaterView(inflater, container);
         unbinder = ButterKnife.bind(this, mRootView);
-        initView(mRootView);
         showLoading();
+        initView(mRootView);
         return mRootView;
     }
 

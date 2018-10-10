@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -86,7 +87,24 @@ public class SearchFragment extends BaseFragment<SearchPresenter> implements Sea
             }
         });
 
+        msearchet.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
 
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    hideSoftInput();
+                }
+                String content = msearchet.getText().toString();
+                if (StringUtils.isEmpty(content) || StringUtils.isEmpty(content)) {
+
+                }else {
+                    mPresenter.getSearchdate(content);
+                }
+                return false;
+            }
+        });
+
+        hideLoading();
     }
 
     @Override
@@ -95,6 +113,7 @@ public class SearchFragment extends BaseFragment<SearchPresenter> implements Sea
             mhomeAdapter.setNewData(articles.getDatas());
             mswipeRefreshLayout.setRefreshing(false);
             mhomeAdapter.loadMoreComplete();
+            hideLoading();
         }else if (type == 1) {
             mhomeAdapter.addData(articles.getDatas());
             if (articles.getDatas() == null || articles.getDatas().size() < 20) {
