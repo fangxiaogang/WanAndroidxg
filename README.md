@@ -6,7 +6,7 @@
 
 ## Introduce
 
-一个基于 [WanAndroid Api][http://www.wanandroid.com/] 完成的第三方 app。坚持做一个简单好用纯粹的 app。simple is more
+一个基于 [WanAndroid Api][http://www.wanandroid.com/]  完成的第三方 app。坚持做一个简单好用纯粹的 app。simple is more
 
 代码结构为：单 Actvity + Fragment && Retrofit + RxJava + MVP +Dagger2
 
