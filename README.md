@@ -4,7 +4,20 @@
 [![fir.im][3]][4] 
 [![Release Version][5]][6]
 
+## Introduce
 
+一个基于 WanAndroid Api 完成的第三方 app。坚持做一个简单好用纯粹的 app。simple ismore
+
+代码结构为：单 Actvity + Fragment && Retrofit + RxJava + MVP +Dagger2
+
+
+
+## Screenshots
+
+<img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/01.jpg"></img>
+<img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/02.jpg"></img>
+<img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/03.jpg"></img>
+<img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/04.jpg"></img>
 
 
 
