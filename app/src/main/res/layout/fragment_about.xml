@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
+    <!--android:background="#f6f6f6"-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,6 +39,99 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="#dddddd"/>
+
+
+    <ImageView
+        android:id="@+id/icon_iv"
+        android:layout_width="@dimen/px200"
+        android:layout_height="@dimen/px200"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_version_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="当前版本  V1.0.0 "
+        android:textColor="@color/colorSubtitle"
+        android:textSize="13sp" />
+
+
+    <LinearLayout
+        android:id="@+id/upgradelin"
+        android:layout_marginTop="@dimen/px80"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80"
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#dddddd"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorSubtitle"
+            android:textSize="16sp"
+            android:layout_marginLeft="@dimen/px30"
+            android:gravity="center_vertical"
+            android:text="检查更新"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#dddddd"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/githunlin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80"
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorSubtitle"
+            android:textSize="16sp"
+            android:layout_marginLeft="@dimen/px30"
+            android:gravity="center_vertical"
+            android:text="Github"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#dddddd"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/starlin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80"
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorSubtitle"
+            android:textSize="16sp"
+            android:layout_marginLeft="@dimen/px30"
+            android:gravity="center_vertical"
+            android:text="来个 Star 吧"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#dddddd"/>
+    </LinearLayout>
+
 
 
 
