@@ -1,3 +1,20 @@
-# WanAndroidxg
-玩安卓第三方客户端
-simle is more!
+#  WanAndroidxg
+
+[![Apache License 2.0][1]][2]
+[![fir.im][3]][4] 
+[![Release Version][5]][6]
+
+
+
+
+
+
+
+
+
+[1]:https://img.shields.io/:license-apache-blue.svg
+[2]:https://www.apache.org/licenses/LICENSE-2.0.html
+[3]:https://img.shields.io/badge/download-fir.im-blue.svg
+[4]:https://fir.im/rqbw
+[5]:https://img.shields.io/badge/API-16%2B-red.svg?style=flat
+[6]:https://android-arsenal.com/api?level=16
