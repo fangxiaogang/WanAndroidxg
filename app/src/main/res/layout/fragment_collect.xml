@@ -38,6 +38,7 @@
             android:background="@drawable/icon_more"
             android:layout_marginTop="@dimen/px25"
             android:layout_marginRight="@dimen/px25"
+            android:visibility="gone"
             />
     </RelativeLayout>
 

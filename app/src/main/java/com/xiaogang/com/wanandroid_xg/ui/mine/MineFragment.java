@@ -73,6 +73,7 @@ public class MineFragment extends BaseFragment {
         test1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SPUtils.getInstance(Constant.SPname).clear();
                 CookiesManager.clearAllCookies();
             }
         });
@@ -89,6 +90,7 @@ public class MineFragment extends BaseFragment {
             }
         });
     }
+
     public static MineFragment newInstance() {
         Bundle args = new Bundle();
         MineFragment fragment = new MineFragment();
