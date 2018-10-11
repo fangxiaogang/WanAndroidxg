@@ -86,7 +86,7 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
                         @Override
                         public void accept(DataResponse<User> userDataResponse) throws Exception {
                             if (userDataResponse.getErrorCode() == 0){
-                                mView.showFaild("登录成功");
+
                             }
                         }
                     }, new Consumer<Throwable>() {

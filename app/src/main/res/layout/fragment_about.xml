@@ -47,6 +47,7 @@
         android:layout_height="@dimen/px200"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
+        android:background="@drawable/icon"
         />
 
 

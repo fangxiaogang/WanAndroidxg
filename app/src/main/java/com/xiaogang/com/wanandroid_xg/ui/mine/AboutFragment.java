@@ -23,9 +23,6 @@ public class AboutFragment extends BaseFragment {
     @BindView(R.id.backtitle)
     ImageView backtitle;
 
-    @BindView(R.id.homesearch)
-    ImageView mhomesearch;
-
     @BindView(R.id.starlin)
     LinearLayout mstarlin;
 
@@ -83,7 +80,6 @@ public class AboutFragment extends BaseFragment {
 
 
     }
-
 
     public static AboutFragment newInstance() {
         Bundle args = new Bundle();

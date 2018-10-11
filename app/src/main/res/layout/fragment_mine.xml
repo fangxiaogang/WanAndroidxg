@@ -48,7 +48,7 @@
             android:layout_width="@dimen/px200"
             android:layout_height="@dimen/px200"
             android:layout_gravity="center_horizontal"
-            android:background="@color/black"/>
+            android:background="@drawable/icon_user"/>
 
 
         <TextView
@@ -87,7 +87,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/aboutlin"
+        android:id="@+id/aboutLin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

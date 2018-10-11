@@ -31,7 +31,7 @@ public class FirstFragment extends BaseFragment {
             public void run() {
                 startWithPop(MainFragment.newInstance());
             }
-        },500);
+        },1000);
     }
 
     public static FirstFragment newInstance() {
