@@ -133,7 +133,16 @@
             android:background="#dddddd"/>
     </LinearLayout>
 
-
+    <TextView
+        android:layout_marginTop="@dimen/px20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorSubtitle"
+        android:layout_marginLeft="@dimen/px30"
+        android:layout_marginRight="@dimen/px30"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="很高兴遇到你，欢迎你提出意见和建议，如果觉得还不错的话，请 Star 一下吧，再此谢过！"/>
 
 
 </LinearLayout>
