@@ -6,7 +6,7 @@
 
 ## Introduce
 
-一个基于[WanAndroid Api](http://www.wanandroid.com/) 完成的第三方 app。坚持做一个简单好用纯粹的 app。simple is more
+一个基于  [WanAndroid Api][http://www.wanandroid.com/]  完成的第三方 app。坚持做一个简单好用纯粹的 app。simple is more
 
 代码结构为：单 Actvity + Fragment && Retrofit + RxJava + MVP +Dagger2
 
@@ -20,6 +20,17 @@
 <img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/04.jpg"></img>
 <img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/05.jpg"></img>
 
+### Download
+
+##### 少废话 来个链接
+
+[火速跳转](https://fir.im/rqbw)  
+
+<img width="200" height=“200” src="http://onfkdy4l9.bkt.clouddn.com/06.jpg"></img>
+
+
+
+### 致谢
 
 
 
