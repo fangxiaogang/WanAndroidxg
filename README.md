@@ -10,7 +10,9 @@
 
 代码结构为：单 Actvity + Fragment && Retrofit + RxJava + MVP +Dagger2
 
+Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自己设计一个简单并且好用的，顺便熟悉一下最新的开源库。希望你也能喜欢！
 
+如果有任何问题，请到github的[issue处](https://github.com/fangxiaogang/WanAndroidxg/issues)提交，或者联系我，感谢！
 
 ## Screenshots
 
@@ -55,7 +57,7 @@
 
 - [**eventbus**](https://github.com/greenrobot/EventBus)
 
-  ​
+- MVP架构部分参考了： https://github.com/salecoding/WanAndroid
 
 
 ## About me
