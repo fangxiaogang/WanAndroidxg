@@ -95,14 +95,15 @@ public class MineFragment extends BaseFragment {
                 }
             }
         });
-
-
         maboutLin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((MainFragment) getParentFragment()).startBrotherFragment(AboutFragment.newInstance());
             }
         });
+        if (SPUtils.getInstance(Constant.SPname).getBoolean(Constant.LOGIN)){
+            mlogintv.setText("退出");
+        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

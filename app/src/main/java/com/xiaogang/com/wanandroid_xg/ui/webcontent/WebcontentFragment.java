@@ -12,12 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.just.agentweb.AgentWeb;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.SupportFragment;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
+import com.xiaogang.com.wanandroid_xg.ui.login.LoginFragment;
 import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
+import com.xiaogang.com.wanandroid_xg.utils.Constant;
 
 import butterknife.BindView;
 
@@ -114,10 +117,14 @@ public class WebcontentFragment extends BaseFragment<WebcontentPresenter> implem
         mlincollect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isCollect){
-                    mPresenter.removeCollect(articleId);
+                if (!SPUtils.getInstance(Constant.SPname).getBoolean(Constant.LOGIN)){
+                    start(LoginFragment.newInstance());
                 }else {
-                    mPresenter.addCollect(articleId);
+                    if (isCollect){
+                        mPresenter.removeCollect(articleId);
+                    }else {
+                        mPresenter.addCollect(articleId);
+                    }
                 }
             }
         });
