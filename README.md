@@ -28,6 +28,8 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 
 [跳转直达](https://fir.im/rqbw)  
 
+或者直接扫码下载体验
+
 <img width="200" height=“200” src="http://onfkdy4l9.bkt.clouddn.com/06.jpg"></img>
 
 
