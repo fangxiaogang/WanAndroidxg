@@ -32,8 +32,6 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 
 <img width="200" height=“200” src="http://onfkdy4l9.bkt.clouddn.com/06.jpg"></img>
 
-
-
 ### 致谢
 
 - Api 数据来源：鸿洋大神的   [WanAndroid Api](http://www.wanandroid.com/)
@@ -63,8 +61,6 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 
 
 ## About me
-
-
 
 - [**Github**](https://github.com/fangxiaogang)
 - [**Blog**](https://fangxiaogang.github.io/)
