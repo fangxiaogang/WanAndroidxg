@@ -20,7 +20,7 @@ android {
     android.applicationVariants.all { variant ->
         variant.outputs.all { output ->
 
-            outputFileName = "Android玩计划_V${defaultConfig.versionName}_" +
+            outputFileName = "安卓玩计划_V${defaultConfig.versionName}_" +
                     "${variant.applicationId}.apk"
         }
     }
