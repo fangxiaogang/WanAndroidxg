@@ -4,19 +4,15 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.xiaogang.com.wanandroid_xg.R;
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
-import com.xiaogang.com.wanandroid_xg.bean.LoginEvent;
 import com.xiaogang.com.wanandroid_xg.bean.User;
-import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
+import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
 import com.xiaogang.com.wanandroid_xg.utils.Constant;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 
@@ -84,8 +80,11 @@ public class LoginFragment extends BaseFragment<LoginPresenter> implements Login
         SPUtils.getInstance(Constant.SPname).put(Constant.LOGIN, true);
         SPUtils.getInstance(Constant.SPname).put(Constant.USERNAME, user.getUsername());
         SPUtils.getInstance(Constant.SPname).put(Constant.PASSWORD, user.getPassword());
-        EventBus.getDefault().post(new LoginEvent("退出"));
-        _mActivity.onBackPressed();
+
+        startWithPop(MainFragment.newInstance());
+
+//        EventBus.getDefault().post(new LoginEvent("退出"));
+//        _mActivity.onBackPressed();
     }
 
     @Override

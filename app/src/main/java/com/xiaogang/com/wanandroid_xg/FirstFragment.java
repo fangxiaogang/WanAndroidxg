@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.view.View;
 
 import com.xiaogang.com.wanandroid_xg.base.BaseFragment;
-import com.xiaogang.com.wanandroid_xg.ui.main.MainFragment;
+import com.xiaogang.com.wanandroid_xg.ui.login.LoginFragment;
 
 /**
  * author: fangxiaogang
@@ -29,7 +29,7 @@ public class FirstFragment extends BaseFragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startWithPop(MainFragment.newInstance());
+                startWithPop(LoginFragment.newInstance());
             }
         },800);
     }

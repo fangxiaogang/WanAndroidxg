@@ -1,22 +1,8 @@
 package com.xiaogang.com.wanandroid_xg.ui.main;
 
-import android.view.KeyEvent;
-
-import com.blankj.utilcode.util.ToastUtils;
-import com.chaychan.library.BottomBarItem;
-import com.chaychan.library.BottomBarLayout;
 import com.xiaogang.com.wanandroid_xg.FirstFragment;
 import com.xiaogang.com.wanandroid_xg.R;
-import com.xiaogang.com.wanandroid_xg.SupportFragment;
 import com.xiaogang.com.wanandroid_xg.base.BaseActivity;
-import com.xiaogang.com.wanandroid_xg.ui.home.HomeFragment;
-import com.xiaogang.com.wanandroid_xg.ui.knowledge.KnowledgeFragment;
-import com.xiaogang.com.wanandroid_xg.ui.mine.MineFragment;
-import com.xiaogang.com.wanandroid_xg.ui.project.ProjectFragment;
-
-import butterknife.BindView;
-import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
-import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 public class MainActivity extends BaseActivity {
 
