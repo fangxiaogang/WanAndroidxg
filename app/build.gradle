@@ -16,6 +16,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //修改打包出来之后的文件名
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+
+            outputFileName = "Android玩计划_V${defaultConfig.versionName}_" +
+                    "${variant.applicationId}.apk"
+        }
+    }
 }
 
 dependencies {
