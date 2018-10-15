@@ -15,9 +15,9 @@ public interface HomeContract {
 
     interface View extends BaseContract.Baseview {
 
-        void setBannerdate (List<Banner> bannerers);
+        void setBannerdate(List<Banner> bannerers);
 
-        void sethomedate (Article articles,int type);
+        void sethomedate(Article articles, int type);
 
     }
 
@@ -30,6 +30,8 @@ public interface HomeContract {
         void refresh();
 
         void loadMore();
+
+        void status();
     }
 
 

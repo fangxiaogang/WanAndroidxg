@@ -11,10 +11,8 @@ import com.xiaogang.com.wanandroid_xg.ui.home.HomeFragment;
 import com.xiaogang.com.wanandroid_xg.ui.knowledge.KnowledgeFragment;
 import com.xiaogang.com.wanandroid_xg.ui.mine.MineFragment;
 import com.xiaogang.com.wanandroid_xg.ui.project.ProjectFragment;
-import com.xiaogang.com.wanandroid_xg.ui.webcontent.WebcontentFragment;
 
 import butterknife.BindView;
-import me.yokeyword.fragmentation.SupportFragment;
 
 /**
  * Created by xiaogang on 2018/9/22.

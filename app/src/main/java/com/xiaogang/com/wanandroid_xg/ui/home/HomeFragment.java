@@ -73,6 +73,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
         mbanner = (com.youth.banner.Banner) mHomeBannerHeadView.findViewById(R.id.banner_home);
         mhomeAdapter.addHeaderView(mHomeBannerHeadView);
         mhomeAdapter.setOnLoadMoreListener(this);
+        mPresenter.status();
         mPresenter.getBannerdate();
         mPresenter.gethomedate();
 

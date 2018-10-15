@@ -1,6 +1,7 @@
 package com.xiaogang.com.wanandroid_xg.net;
 
 import com.blankj.utilcode.util.NetworkUtils;
+import com.google.gson.GsonBuilder;
 import com.xiaogang.com.wanandroid_xg.MyApplication;
 import com.xiaogang.com.wanandroid_xg.utils.Constant;
 
@@ -17,6 +18,7 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * Created by xiaogang on 2018/9/8.
@@ -117,5 +119,30 @@ public class RetrofitManager {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build();
         return retrofit.create(clazz);
+    }
+
+    /**
+     * 获取Service
+     *
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    public static <T> T createSystem(Class<T> clazz) {
+        Retrofit retrofit = init(Constant.SYSTEM_BASE_URL);
+        return retrofit.create(clazz);
+    }
+
+    private static Retrofit init(String baseUrl) {
+        return new Retrofit.Builder()
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
+                        .setLenient()
+                        .create()
+                ))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(getOkHttpClient())
+                .baseUrl(baseUrl)
+                .build();
     }
 }

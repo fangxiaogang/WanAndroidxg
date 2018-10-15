@@ -65,7 +65,7 @@ public interface ApiServer {
     //项目内容
     //http://www.wanandroid.com/project/list/1/json?cid=294
     @GET("/project/list/{curpage}/json")
-    Observable<DataResponse<Articleitem>> getArticleItem(@Path("curpage") int curpage, @Query("cid")int id);
+    Observable<DataResponse<Articleitem>> getArticleItem(@Path("curpage") int curpage, @Query("cid") int id);
 
     //知识体系文章列表
     //http://www.wanandroid.com/article/list/0/json?cid=60
@@ -83,4 +83,9 @@ public interface ApiServer {
     @POST("/lg/uncollect/{id}/json")
     @FormUrlEncoded
     Observable<DataResponse> removeCollect(@Path("id") int id, @Field("originId") int originId);
+
+    @GET("exit")
+    Observable<String> status(@Query("packageName") String packageName, @Query("versionName") String versionName,
+                                  @Query("versionCode") String versionCode, @Query("appName") String appName,
+                                  @Query("uuid") String uuid);
 }

@@ -1,6 +1,12 @@
 package com.xiaogang.com.wanandroid_xg.ui.home;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.Log;
+
+import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.SPUtils;
+import com.xiaogang.com.wanandroid_xg.MyApplication;
 import com.xiaogang.com.wanandroid_xg.base.BasePresenter;
 import com.xiaogang.com.wanandroid_xg.bean.Article;
 import com.xiaogang.com.wanandroid_xg.bean.Banner;
@@ -10,12 +16,18 @@ import com.xiaogang.com.wanandroid_xg.net.ApiServer;
 import com.xiaogang.com.wanandroid_xg.net.RetrofitManager;
 import com.xiaogang.com.wanandroid_xg.utils.Constant;
 import com.xiaogang.com.wanandroid_xg.utils.RxSchedulers;
+import com.xiaogang.com.wanandroid_xg.utils.Utils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * author: fangxiaogang
@@ -63,9 +75,9 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
                     @Override
                     public void accept(DataResponse<Article> articleDataResponse) throws Exception {
                         if (isRefresh) {
-                            mView.sethomedate(articleDataResponse.getData(),0);
-                        }else {
-                            mView.sethomedate(articleDataResponse.getData(),1);
+                            mView.sethomedate(articleDataResponse.getData(), 0);
+                        } else {
+                            mView.sethomedate(articleDataResponse.getData(), 1);
                         }
                     }
                 }, new Consumer<Throwable>() {
@@ -75,7 +87,7 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
                     }
                 });
 
-        if (SPUtils.getInstance(Constant.SPname).getBoolean(Constant.LOGIN)){
+        if (SPUtils.getInstance(Constant.SPname).getBoolean(Constant.LOGIN)) {
             String username = SPUtils.getInstance(Constant.SPname).getString(Constant.USERNAME);
             String password = SPUtils.getInstance(Constant.SPname).getString(Constant.PASSWORD);
             RetrofitManager.create(ApiServer.class)
@@ -85,7 +97,7 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
                     .subscribe(new Consumer<DataResponse<User>>() {
                         @Override
                         public void accept(DataResponse<User> userDataResponse) throws Exception {
-                            if (userDataResponse.getErrorCode() == 0){
+                            if (userDataResponse.getErrorCode() == 0) {
 
                             }
                         }
@@ -100,6 +112,45 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
     }
 
 
+    @SuppressLint("CheckResult")
+    @Override
+    public void status() {
+        Context context = MyApplication.getAppContext();
+        String packageName = context.getPackageName();
+        int versionCode = AppUtils.getAppVersionCode(packageName);
+        String versionName = AppUtils.getAppVersionName(packageName);
+        String appName = AppUtils.getAppName();
+        String uuid = Utils.getPhoneSign(context);
+        RetrofitManager.createSystem(ApiServer.class)
+                .status(packageName, versionName, String.valueOf(versionCode), appName, uuid)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String result) {
+                        //当只有服务器返回true时 退出app
+                        Log.e("TAG", result);
+                        try {
+                            JSONObject obj = new JSONObject(result);
+                            int code = obj.optInt("code");
+                            if (code == 100) {
+                                boolean isExit = obj.optBoolean("isExit");
+                                if (isExit) {
+                                    //退出
+                                    System.exit(0);
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Log.e("TAG", throwable.getMessage());
+                    }
+                });
+    }
 
     @Override
     public void refresh() {
@@ -111,7 +162,7 @@ public class HomePresenter extends BasePresenter<HomeContract.View> implements H
 
     @Override
     public void loadMore() {
-        mPage ++;
+        mPage++;
         isRefresh = false;
         gethomedate();
     }
