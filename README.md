@@ -67,8 +67,6 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 - **Email：** 1005275062@qq.com
 
 
-
-
 ## License
 ```
 Copyright (C) 2018
@@ -85,13 +83,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-
-
-
-
-
-
-
 
 [1]:https://img.shields.io/:license-apache-blue.svg
 [2]:https://www.apache.org/licenses/LICENSE-2.0.html
