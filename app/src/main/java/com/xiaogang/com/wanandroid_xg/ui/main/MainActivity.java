@@ -69,6 +69,7 @@ public class MainActivity extends BaseActivity {
 ////                ToastUtils.showShort("ss"+ before +  "sss" + current );
 //            }
 //        });
+
     }
 
     @Override
