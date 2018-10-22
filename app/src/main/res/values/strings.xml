@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">安卓玩计划</string>
+    <string name="app_name">时时掌上计划</string>
     <!-- 状态视图  -->
     <string name="loading">加载中...</string>
     <string name="text_empty">还没有数据呢！</string>
