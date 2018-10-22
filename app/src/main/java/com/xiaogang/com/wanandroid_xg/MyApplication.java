@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.blankj.utilcode.util.Utils;
+import com.jiagu.sdk.MunitProtected;
 import com.xiaogang.com.wanandroid_xg.di.component.ApplicationComponent;
 import com.xiaogang.com.wanandroid_xg.di.component.DaggerApplicationComponent;
 import com.xiaogang.com.wanandroid_xg.di.moudule.ApplicationModule;
@@ -20,13 +21,13 @@ public class MyApplication extends Application {
     private ApplicationComponent mApplicationComponent;
 
 
-
     @Override
     public void onCreate() {
         super.onCreate();
         myApplication = this;
         initApplicationComponent();
         Utils.init(this);
+        MunitProtected.install(this);
     }
 
 

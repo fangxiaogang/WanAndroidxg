@@ -15,9 +15,14 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".ui.main.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.WebActivity" />
+        <activity
+            android:name=".activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
