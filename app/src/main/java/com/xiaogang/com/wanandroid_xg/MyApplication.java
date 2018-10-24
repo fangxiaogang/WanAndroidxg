@@ -27,7 +27,7 @@ public class MyApplication extends Application {
         super.onCreate();
         myApplication = this;
         initApplicationComponent();
-        CrashReport.initCrashReport(getApplicationContext(), "53b6bf0d48", false);
+       // CrashReport.initCrashReport(getApplicationContext(), "53b6bf0d48", false);
         Utils.init(this);
     }
 
