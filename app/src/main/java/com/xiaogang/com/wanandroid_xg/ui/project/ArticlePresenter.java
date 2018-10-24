@@ -50,8 +50,22 @@ public class ArticlePresenter extends BasePresenter<ArticleContract.View> implem
     }
 
     @Override
-    public void refresh() {
+    public void refresh(int id) {
+        RetrofitManager.create(ApiServer.class)
+                .getArticleItem(mpage,id)
+                .compose(RxSchedulers.<DataResponse<Articleitem>>applySchedulers())
+                .compose(mView.<DataResponse<Articleitem>>bindToLife())
+                .subscribe(new Consumer<DataResponse<Articleitem>>() {
+                    @Override
+                    public void accept(DataResponse<Articleitem> articleitemDataResponse) throws Exception {
+                        if (isRefresh) {
+                            mView.setArticleDate(articleitemDataResponse.getData(),0);
+                        }else {
+                            mView.setArticleDate(articleitemDataResponse.getData(),1);
+                        }
 
+                    }
+                });
     }
 
     @Override

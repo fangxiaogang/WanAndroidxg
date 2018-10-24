@@ -110,7 +110,7 @@ public class ArticleFragment extends BaseFragment<ArticlePresenter> implements A
 
     @Override
     public void onRefresh() {
-        mPresenter.refresh();
+        mPresenter.refresh(articleId);
     }
 
     @Override

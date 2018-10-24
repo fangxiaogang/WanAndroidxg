@@ -80,11 +80,10 @@ public class KnowledgeLIstFragment extends BaseFragment<KnowledgeLIstPresenter> 
     }
 
 
-
-
     @Override
     public void onRefresh() {
-
+        //待开发
+        mswipeRefreshLayout.setRefreshing(false);
     }
 
     @Override

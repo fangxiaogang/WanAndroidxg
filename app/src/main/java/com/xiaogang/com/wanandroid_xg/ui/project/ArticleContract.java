@@ -24,7 +24,7 @@ public interface ArticleContract {
 
         void getArticleItem(int id);
 
-        void refresh();
+        void refresh(int id);
 
         void loadMore();
 

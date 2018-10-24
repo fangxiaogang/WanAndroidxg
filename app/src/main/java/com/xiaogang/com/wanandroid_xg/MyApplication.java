@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.blankj.utilcode.util.Utils;
-import com.tencent.bugly.crashreport.CrashReport;
+//import com.tencent.bugly.crashreport.CrashReport;
 import com.xiaogang.com.wanandroid_xg.di.component.ApplicationComponent;
 import com.xiaogang.com.wanandroid_xg.di.component.DaggerApplicationComponent;
 import com.xiaogang.com.wanandroid_xg.di.moudule.ApplicationModule;
