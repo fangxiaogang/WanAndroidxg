@@ -37,7 +37,7 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 - Api 数据来源：鸿洋大神的   [WanAndroid Api](http://www.wanandroid.com/)
 - 感谢开源，为开发者提供如此好的代码
 
-ps.本人最近也在找工作，3年经验，希望大家能内推我或者给一个面试机会。
+ps. 本人最近也在找工作，3年经验，希望大家能内推我或者给一个面试机会。 邮箱：1005275062@qq.com
 
 ##### 开源库：
 - [**retrofit2**](https://github.com/square/retrofit)
