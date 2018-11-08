@@ -25,6 +25,7 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 ### Download
 
 ##### 少废话 来个链接
+版本：1.1.0
 
 [跳转直达](https://fir.im/rqbw)  
 
@@ -37,6 +38,7 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 - Api 数据来源：鸿洋大神的   [WanAndroid Api](http://www.wanandroid.com/)
 - 感谢开源，为开发者提供如此好的代码
 - 如果觉得不错，希望能给个 Star
+
 
 ps. 本人最近也在找工作，3年经验，希望大家能内推我或者给一个面试机会。 邮箱：1005275062@qq.com
 
