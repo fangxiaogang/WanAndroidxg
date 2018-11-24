@@ -40,7 +40,6 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 - 如果觉得不错，希望能给个 Star
 
 
-ps. 本人最近也在找工作，3年经验，希望大家能内推我或者给一个面试机会。 邮箱：1005275062@qq.com
 
 ##### 开源库：
 - [**retrofit2**](https://github.com/square/retrofit)
