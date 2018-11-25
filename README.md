@@ -16,9 +16,9 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 
 ## Screenshots
 
-<img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/01.jpg"></img>
-<img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/02.jpg"></img>
-<img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/03.jpg"></img>
+<img width="173" height=“274” src="https://github.com/fangxiaogang/WanAndroidxg/blob/master/screenshot/01.jpg"></img>
+<img width="173" height=“274” src="https://github.com/fangxiaogang/WanAndroidxg/blob/master/screenshot/02.jpg"></img>
+<img width="173" height=“274” src="https://github.com/fangxiaogang/WanAndroidxg/blob/master/screenshot/03.jpg"></img>
 <img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/04.jpg"></img>
 <img width="173" height=“274” src="http://onfkdy4l9.bkt.clouddn.com/05.jpg"></img>
 
