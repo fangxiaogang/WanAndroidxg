@@ -25,7 +25,7 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 ### Download
 
 ##### 少废话 来个链接
-版本：1.1.0
+版本：1.2.0
 
 [跳转直达](https://fir.im/rqbw)  
 
