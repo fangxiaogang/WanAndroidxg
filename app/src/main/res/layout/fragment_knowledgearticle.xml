@@ -27,6 +27,7 @@
             android:background="@drawable/icon_search"
             android:layout_marginTop="@dimen/px18"
             android:layout_marginRight="@dimen/px18"
+            android:visibility="gone"
             />
     </RelativeLayout>
 
