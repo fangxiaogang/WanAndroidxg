@@ -60,7 +60,7 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 
 - [**eventbus**](https://github.com/greenrobot/EventBus)
 
-- MVP架构部分参考了： https://github.com/salecoding/WanAndroid
+
 
 
 ## About me
