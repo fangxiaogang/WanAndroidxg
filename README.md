@@ -69,6 +69,7 @@ Github 上的  WanAndroid 总是多多少少让我觉得不够满意，索性自
 - [**Blog**](https://fangxiaogang.github.io/)
 - **Email：** 1005275062@qq.com
 
+一个位于深圳的 Android 开发者 ， 如果你有问题 ，或者工作机会， 请联系 Email : 1005275062@qq.com
 
 ## License
 ```
